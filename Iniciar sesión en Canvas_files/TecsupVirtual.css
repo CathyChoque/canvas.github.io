@@ -1,0 +1,223 @@
+Tecsup-Canvas-demo.css
+Quién tiene acceso
+J
+
+Propiedades del sistema
+Tipo
+Hoja de estilo
+Tamaño
+2 kB
+Almacenamiento usado
+2 kBPropiedad de Tecsup
+Ubicación
+Diseño canvas protada
+Propietario
+José Luis Contreras Cangre
+Modificado
+9 nov 2021 por José Luis Contreras Cangre
+Abierto
+10:09 por mí
+Creado
+9:19
+Añadir descripción
+Los usuarios con acceso de lectura pueden descargar este elemento
+/******** ESTILOS LOGIN ********/
+.ic-Login__actions {
+	display: flex;
+	flex-direction: row-reverse;
+}
+body.ic-Login-Body {
+	background-image: url('https://lh3.googleusercontent.com/fife/AAWUweVKY7qISNGNTy51l8p-u2aG0wl6FFnCgEVF5wobgj1b5CB9eVnD2NOUobBg8CyEMgbZSFczHSZTagQiASGxz_kSeqO2n8TZuUx8jhqE8d8I2-G85xMAGLfhqBhWbhwhLyp0dIHCOvSR-pkIZW0NUeSxJFbgkGQXPzQ6C4VGnT_vy9fMcZ8DwzzUprj6qkFAgisbVWSzz1AADI6a7hXoj74VWY9AapDUavgVD_WXlZMq5CNwyCTUV870FogyohRm7o1Uzk6D63xYVK3OhvxvEfE1_e_zkOzjH1jl00WgfeeyBvMiavMLkRe847ZICFn6gFOvr6WVKMRQ30PwxiJIbwIOEMHN4ee6RSkbW8EF94-sNlFadpTqLuy9_bRkXGUIhpXCSo1_NpJJwMRiy1-slk3OO0d4t7M4j1JnSJ7LbgWF3eZzs81hrOK5p_BR9kmFEuBQPxCc5fk0HJv95l67f-WiaawpHUc0NgVKlXIEr3oicKnuXpPdqXIt3IuazIWO203v4jB73ICyFWoulPkk9LgOomRKAnrhiXQ4jXP6WueOui5bTjSfjDu-6I9SrXQoa5tFKGWCfl6GuJefTqQliLlqOz4WcDV9J4Hvq70Gwb5Tkp1qunviV3f5_4jwzrVHMuM6cNwhLp2WPkw_UAOoqfRBxCal6f4qTO-5JA6MU3VT8oeyH1pbv5HuJ8Dn_axxd4vy6XWheP6udgVTfvkUiNjeDhtszufJqGSgH2E3AOWJpWqQ9EzczNwSIV5IS0-PINKpiOK2aDwKKBV8xcUYQg=w1440-h937') !important;
+	background-size:cover !important;
+	background-attachment:fixed !important;
+	height:100vh !important;
+	background-color: none !important;
+	transition-property: background-image;
+	transition-duration: 1s;
+	transition-timing-function: linear;
+	transition-delay: 5s;
+}
+body.ic-Login-Body:hover {
+	background-image: url('https://lh3.googleusercontent.com/fife/AAWUweWqNKadLPG3KuRKca65-MloTSJzlEAXSzba0AH18eo5ZDr8aYVwdDRZnCeM9-7q7v2zR6fJOdwCCgRJgrpHdNstiAIwJp8n5tp0GDUL4SPivKxgm6VevNoN9dLVsmkDfLlYCJIOjD7XAobpIt0fD1h2HyHzFS2QtjQLqGySyoHfCdTKk2_UVbZAT6OEUZqk-BloBAmryRdTL_Too58bez0BYqpZbtYjZ-Gu1mfxWIN9kN-NnknQrGtsVm20g0CIYgvos6kBMw2ncFoWKcV5LoLReveK3XV7bk9Ts5ncmEvwzs5pwm0jlynVm3Cfi78ZqBx4HkC8JUzpOAPNeZXmC-Ww3lqx23xOOazNAUOBmZxWR8zcHSe-kbB5_Sd6sjmvooXlvfWnw72zARvjk-7a69TckzQrJZ48qfNmf5mDbllMhYgSQwpMkcxnzuHun1-OsbZaaxUnJkVRFl9VCHIvNKtLs4of0E_D5AZOP51w9JGjBSeyctkhGZxLXhNCETKY5RLhmcNDYO4-tNa9vUjNtCGB_c2rbpaSY2icox01HiZxSuO8eCyA2_xBVoRecSxLT5OW66BIbUtg6_oU0dGeicexhAc-3xtgpjcxEhGHJngEpV0wvMbSXaJDhSHCPpyK_joW-l6gF8AZFCLeSYNO3JjEwYAFxaWEEY3WU0TmVnsV3ooHtysjMkOLSp8xY06Zbqk8tKmzfBpsr99uL2jb80oPEh6E4PMPEtQ_gEA_h9hdMpHdgKKfJMxFkRcZctbifmHeL9VOrSTW8kN1m-KWpg=w1920-h937') !important;
+}
+
+.ic-Login__actions button.Button--login {
+    padding: 6px 36px;
+    background-color:#00b1f7 !important;
+    color: #fff;
+    border: 1px solid;
+    border-color: #00b1f7;
+	width: 230px;
+	text-transform: uppercase;
+	font-size: 0.875em;
+}
+
+.ic-Login__actions-timeout
+{
+	display:none;
+}
+
+.ic-Login__register-banner .ic-Login__banner-title {
+    font-weight: normal;
+    display: none;
+	
+}
+
+.ic-Login-header__links .ic-Login__link {
+    display: none;
+    margin-top: 6px;
+}
+
+.ic-Login__actions-timeout {
+	display:block;
+}
+
+.ic-Login__sso, .ctacanvas_main {
+	display: block;
+}
+
+.ic-Label, .pseudonym_session_unique_id{
+display: grid;
+}
+
+/*******************************/
+
+
+.ic-Login {
+	position: absolute;
+	top: 50%;
+	right: 5%;
+	transform:translateY(-50%);
+}
+
+.ic-Login__forgot {
+	display: flex;
+    padding: 5px 0 20px 0;
+    justify-content: center;
+}
+
+.ic-Login__forgot a{
+	color: #00b1f7 !important;
+	text-decoration: none;
+	font-size: 0.875em;
+}
+
+.ic-Login-header__links {
+	display: grid;
+}
+
+.ic-Form-control--login {
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.ic-Form-control--login button {
+	margin-left: 35px;
+}
+
+.ic-Login__actions{
+	display: block;
+	align-items: center;
+	justify-content: center;
+}
+
+.ic-Login-footer__links {
+	display:block;
+}
+
+.ic-Form-control--login .ic-Input{
+	border: none !important;
+	width: 300px !important;
+	background-color: #f5f5f5 !important;
+	border-radius: 5px;
+}
+
+.ic-Form-control--login .ic-Label {
+	color: rgb(107, 107, 107) !important;
+	font-size: 0.875em;
+	font-weight: normal;
+}
+
+.ic-Login__actions-timeout label {
+	color: rgb(107, 107, 107) !important;
+}
+
+body.ic-Login-Body #footer.ic-Login-footer {
+	display: none !important;
+}
+
+.ic-Login__body {
+	padding: 0 12px 0 12px
+}
+
+.ic-Login__body a:nth-last-child(2){
+	display: none !important; /*elimina el primer boton de ingresa con tu correo de Tecsup*/
+}
+
+.ic-Login__body .Button {
+    background-color:#3369e8 !important;
+    color: #fff !important;
+    border: none;
+	font-size: 0.875em !important;
+	padding: 2px;
+}
+
+.ic-Login__body .Button i{
+	background: none !important;
+	background-image: url('https://lh3.googleusercontent.com/fife/AAWUweV3t1oXz40Eo7Luky8ISnGXLRv7SE8Kv4M2d4zCW11H0eFTX9dbr16oiCHIKlk0b2v8-hsVQ187004IDtwirzKa4fsLuLGhAXGZksHDnx4sDyrg11pGCujrf3l-q1kVivB5jnRZjV4Bs-MAQ3C7qiTz-0VS3mBbEX8M4RgMVhBnAqDlUqZRca1xLVVAlt6scfxJ3HtX8X33q9rjOrv-i1tj2c4LOW-wquCmc-dfq3oxsfuZf6LqesG9froDp5jhkJIJJwSWSoRZY7c2HnIVBZR-xEHxoMVWmDXdZP1iTj2BaezSTheNPxAb5pXC4dL_y0P01P2fJfqUsfRQnEddE_c0ZI_72-HJzkTDf-8Avp2sg89zr4PEToTU2R_IeY1cI1-F9czO3Fm8nR5AP8DkXAyU9BiwsFmpLnXlPpkIxBmZ1WdEHX14Is46e1l_zBVqREuNfEi0NmpcmNjJm7qIyTUag9B-3mUluhUpvSEQ8dn7G5BHInL6ezvAGKiMPzkI7IL5wJXIgFgWK9zhRNg3xN1Fd5Ai4QdO45xkEhNx4NBz4-LoFtJqU6OMJoLGsQKJdLF_v12gu9NeSyp6cLCBVkM32lt603nN4VypOTYkLS4kPqaiVfk2_McPqlMdlpBKO9zWs0lqRx650mdzODzyuWw4pPkHQ9mzdSKSJYu1eG2XfDYp7RTN-IzQoJ1JgKVCVcyXIlYLFfJtSZGnZvgYT7yyZQjYj0zTNEgRVB-thdiV2a6RO7DT2hNNhBuWHuoARJhFvnnhvwYWpoNC2QOd5A=w1920-h937') !important;
+	background-repeat: no-repeat !important;
+    background-color:#ffff !important;
+    color: #fff !important;
+	width: 50px !important;
+    height: 40px !important;
+	margin-right: 26px !important;
+	margin-left: 0px !important;
+}
+
+.ic-Login__content {
+	padding: 15px 40px 55px;
+	border: none;
+	width: 320px;
+    height: 450px;
+	border-radius: 12px;
+}
+
+#d_grid_login span.ui-icon-extlink {
+	display: block;
+}
+
+.ic-Login-header__logo {
+	width: 270px;
+    height: 100px;
+	background-image: url('https://lh3.googleusercontent.com/fife/AAWUweVV6FIOBNfkTBN32hw-YsnGQn_DMOltmojH5ZpQiXgTS9gxhBNm85FSsJa5HzlsavS8lIqw-RRzUHuX_QZeb4contqzb_JA-0UsY3-lUAYyLkB1eVt90hMN-yKmxJjuciyiISCr7WeExoF_tJGBpa_xRGwE6KRxEICgnHgUN-4nOtz2-mJV86OOqd9qFX691Up7SDbD-oraqkJfKm7QL0qKKHNmFx--sZ5R_d0j0FBn5XNIfghggoFnxRbfNFFyxdXJ16Hdx7yJs1Y03qP-YmaAqBzPUBwhac_GpA1yggIF4fVfSLh94suaH_Eek2ZYsoPfGYAulcGzo2-Qm_HU_OP7sHZqoli6eh0Gzl98OaWtDZQFIuUxVpZ8Xbi052lwVe5Jt3P7wEPt-S3olz0IBr9RScTz30bhYAOKuadg_BDmDC8HF252zUeAgprDgKjeyQ6qhYMzALRrMyu5RTF-arc3XXFZqPR1nY5MW1-aGAYrTR6QPqSMlx2qOxR2LaDE110MxJ5V9eGovsRFcnqVjLoZel-MhzsyDzg_wlFStZRJdb-cipoRr8Ac3PHkpFiCG2eGvUscntGt7S35pAC1znkPTa-fe7k4P-L0gWllp1HUKpmUyjE2f2OX2DSjIpHmeUgSie8yylLVQVU7IaDJCfkihXXZaB0PleAQQHK9NiS4O7OWDQM8j1u5UPfjaoPilKeEfEidVOw_HGM_HI4cbdvbp7Q4PF9mFrfkULlmt-KSisAadNbG1owxj3v1Bs8njtXlZd4e4JSXLZWLQMjJXA=w1920-h937');
+	background-repeat: no-repeat;
+}
+
+.ic-Login-header__logo img {
+	display: none;
+}
+
+.ic-Login__sso-list__item {
+	border: solid 1px #b01e31;
+	border-radius: 10px;
+	list-style: none;
+	text-align: center;
+}
+
+.ic-Login__actions .Button--login::before {
+    padding: 6px 36px;
+    background: #00b1f7;
+    color: #fff;
+    border: 1px solid;
+    border-color: #00b1f7;
+}
+
+
+.ic-Login-header {
+    padding: 0 18px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,0 +1,505 @@
+(window["canvasWebpackJsonp"]=window["canvasWebpackJsonp"]||[]).push([[79],{"65NJ":function(e,t,n){"use strict"
+var a=n("ouhR")
+var o=n.n(a)
+n("w2hD")
+o.a.fn.scrollToVisible=function(e){const t={}
+const n=o()(e)
+if(0===n.length)return
+let a=n.offset(),r=n.outerWidth(),i=n.outerHeight(),s=a.top,l=s+i,c=a.left,d=c+r,u="html,body"==this.selector?o.a.windowScrollTop():this.scrollTop(),p=this.scrollLeft(),h=this.outerHeight(),m=this.outerWidth()
+if("html,body"!=this.selector){let e=o()("body").offset()
+this.each((function(){try{e=o()(this).offset()
+return false}catch(e){}}))
+s-=e.top
+l-=e.top
+c-=e.left
+d-=e.left}if("HTML"==this[0].tagName||"BODY"==this[0].tagName){h=o()(window).height()
+o()("#wizard_box:visible").length>0&&(h-=o()("#wizard_box:visible").height())
+m=o()(window).width()
+s-=u
+c-=p
+l-=u
+d-=p}s<0||h<i&&l>h?t.scrollTop=s+u:l>h&&(t.scrollTop=l+u-h+20)
+c<0?t.scrollLeft=c+p:d>m&&(t.scrollLeft=d+p-m+20)
+1==t.scrollTop&&(t.scrollTop=0)
+1==t.scrollLeft&&(t.scrollLeft=0)
+this.scrollTop(t.scrollTop)
+this.scrollLeft(t.scrollLeft)
+return this}},"6NVu":function(e,t,n){"use strict"
+n.d(t,"a",(function(){return r}))
+var a=n("IxAH")
+const o={true:true,false:false,null:null}
+function r(e,t){if(!e||"boolean"===typeof e){const e=window.location.search
+if(!e)return{}
+return r(e,...arguments)}const n={}
+e.replace(/\+/g," ").split("&").forEach(e=>{let[a,r]=e.split("=")
+a=decodeURIComponent(a)
+r=decodeURIComponent(r)
+t&&(r=r&&!isNaN(r)?+r:"undefined"===r?void 0:void 0!==o[r]?o[r]:r)
+n[a]=r})
+return Object(a["a"])(n)}},"897F":function(e,t,n){"use strict"
+var a=n("ouhR")
+var o=n.n(a)
+var r=n("Y/W1")
+var i=n.n(r)
+var s=n("qqwe")
+n("ESjL")
+o.a.fn.fixDialogButtons=function(){return this.each((function(){const e=o()(this)
+const t=e.find(".button-container:last .btn, button[type=submit]")
+if(t.length){e.find(".button-container:last, button[type=submit]").hide()
+let n=o.a.map(t.toArray(),t=>{const n=o()(t)
+let a=n.attr("class")||""
+const r=n.attr("id")
+if(n.is(".dialog_closer")){n.off(".fixdialogbuttons")
+n.on("click.fixdialogbuttons",Object(s["a"])(()=>e.dialog("close")))}"submit"===n.prop("type")&&n[0].form&&(a+=" button_type_submit")
+return{text:n.text(),"data-text-while-loading":n.data("textWhileLoading"),click:()=>n.click(),class:a,id:r}})
+n=i.a.sortBy(n,e=>e.class.match(/btn-primary/)?1:0)
+e.dialog("option","buttons",n)}}))}},GGFl:function(e,t,n){"use strict"
+var a=n("torl")
+var o=n("YQRR")
+var r=n("HGxv")
+var i=n("mX+G")
+var s=n.n(i)
+const l=Object(r["useScope"])("observer_pairing_code")
+class c extends s.a.Model{}c.prototype.errorMap={code:{invalid:l.t("errors.invalid","Invalid pairing code")}}
+function d(e,t={},n={},a){for(let o in e){const r=e[o]
+o=a?`${a}[${o}]`:o
+let i="object"===typeof r
+null!=r.length&&false===t.arrays&&(i=false)
+i?d(r,t,n,o):n[o]=r}return n}t["a"]=function(e,t){null==t&&(t=ENV.PASSWORD_POLICY)
+return d({user:a["a"].prototype.normalizeErrors(e.user),pseudonym:o["a"].prototype.normalizeErrors(e.pseudonym,t),observee:o["a"].prototype.normalizeErrors(e.observee,t),pairing_code:c.prototype.normalizeErrors(e.pairing_code)},{arrays:false})}},IxAH:function(e,t,n){"use strict"
+n.d(t,"a",(function(){return r}))
+var a=n("Y/W1")
+var o=n.n(a)
+function r(e){return o()(e).reduce((e,t,n)=>{let a=n.split("][")
+let r=a.length-1
+if(/\[/.test(a[0])&&/\]$/.test(a[r])){a[r]=a[r].replace(/\]$/,"")
+a=a.shift().split("[").concat(a)
+r=a.length-1}else r=0
+if(r){let o=0
+let i=e
+while(o<=r){n=""===a[o]?i.length:a[o]
+i=i[n]=o<r?i[n]||(a[o+1]&&isNaN(a[o+1])?{}:[]):t
+o++}}else o.a.isArray(e[n])?e[n].push(t):null!=e[n]?e[n]=[e[n],t]:e[n]=t
+return e},Object.create(null))}},YQRR:function(e,t,n){"use strict"
+var a=n("HGxv")
+var o=n("mX+G")
+var r=n.n(o)
+var i,s=function(e,t){for(var n in t)l.call(t,n)&&(e[n]=t[n])
+function a(){this.constructor=e}a.prototype=t.prototype
+e.prototype=new a
+e.__super__=t.prototype
+return e},l={}.hasOwnProperty
+i=Object(a["useScope"])("pseudonym")
+t["a"]=function(e){s(t,e)
+function t(){return t.__super__.constructor.apply(this,arguments)}t.prototype.errorMap=function(e){null==e&&(e={})
+return{unique_id:{too_short:i.t("errors.required","Required"),too_long:i.t("errors.too_long","Can't exceed %{max} characters",{max:100}),invalid:i.t("errors.invalid","May only contain letters, numbers, or the following: %{characters}",{characters:". + - _ @ ="}),taken:i.t("errors.taken","Already in use"),bad_credentials:i.t("errors.bad_credentials","Invalid username or password"),not_email:i.t("errors.not_email","Not a valid email address")},sis_user_id:{too_long:i.t("errors.too_long","Can't exceed %{max} characters",{max:255}),taken:i.t("errors.sis_taken","The SIS ID is already in use")},password:{too_short:i.t("errors.too_short","Must be at least %{min} characters",{min:e.min_length}),sequence:i.t("errors.sequence","Can't incude a run of more than %{max} characters (e.g. abcdef)",{max:e.max_sequence}),common:i.t("errors.common",'Can\'t use common passwords (e.g. "password")'),repeated:i.t("errors.repeated","Can't have the same character more than %{max} times in a row",{max:e.max_repeats}),confirmation:i.t("errors.mismatch","Doesn't match"),too_long:i.t("errors.too_long","Can't exceed %{max} characters",{max:255})},password_confirmation:{confirmation:i.t("errors.mismatch","Doesn't match")}}}
+t.prototype.normalizeErrors=function(e,n){var a,o,r,i,s,l,c,d,u,p
+if(e){l=["unique_id","password"]
+for(o=0,i=l.length;o<i;o++){p=l[o]
+if(!((null!=(c=e[p])?c.length:void 0)>1))continue
+u=null
+d=e[p]
+for(r=0,s=d.length;r<s;r++){a=d[r]
+"too_short"===a.type&&(u=a)}u&&(e[p]=[u])}}return t.__super__.normalizeErrors.call(this,e,n)}
+return t}(r.a.Model)},aq8L:function(e,t,n){"use strict"
+var a=n("HGxv")
+var o=n("ouhR")
+var r=n.n(o)
+var i=n("gI0r")
+var s=n("3PZ/")
+n("dhbk")
+n("ESjL")
+n("65NJ")
+n("w2hD")
+const l=Object(a["useScope"])("instructure_misc_plugins")
+r.a.fn.setOptions=function(e,t){let n=e?"<option value=''>"+Object(i["a"])(e)+"</option>":""
+null==t&&(t=[])
+t.forEach(e=>{const t=Object(i["a"])(e)
+n+='<option value="'+t+'">'+t+"</option>"})
+return this.html(r.a.raw(n))}
+r.a.fn.ifExists=function(e){this.length&&e.call(this,this)
+return this}
+r.a.fn.scrollbarWidth=function(){const e=r()('<div style="width:50px;height:50px;overflow:hidden;position:absolute;top:-200px;left:-200px;"><div style="height:100px;"></div>').appendTo(this),t=e.find("div")
+const n=t.innerWidth()
+e.css("overflow-y","scroll")
+const a=t.innerWidth()
+e.remove()
+return n-a}
+r.a.fn.dim=function(e){return this.animate({opacity:.4},e)}
+r.a.fn.undim=function(e){return this.animate({opacity:1},e)}
+r.a.fn.confirmDelete=function(e){e=r.a.extend({},r.a.fn.confirmDelete.defaults,e)
+const t=this
+let n=null
+let a=true
+e.noMessage=e.noMessage||e.no_message
+const o=function(){if(!a){e.cancelled&&r.a.isFunction(e.cancelled)&&e.cancelled.call(t)
+return}e.confirmed||(e.confirmed=function(){t.dim()})
+e.confirmed.call(t)
+if(e.url){e.success||(e.success=function(e){t.fadeOut("slow",()=>{t.remove()})})
+const a=e.prepareData?e.prepareData.call(t,n):{}
+a.authenticity_token=Object(s["a"])()
+r.a.ajaxJSON(e.url,"DELETE",a,n=>{e.success.call(t,n)},(n,a,o,i)=>{e.error&&r.a.isFunction(e.error)?e.error.call(t,n,a,o,i):r.a.ajaxJSON.unhandledXHRs.push(a)})}else{e.success||(e.success=function(){t.fadeOut("slow",()=>{t.remove()})})
+e.success.call(t)}}
+if(e.message&&!e.noMessage&&!r.a.skipConfirmations){if(e.dialog){a=false
+const t="object"===typeof e.dialog?e.dialog:{}
+const i=e.url.includes("assignments")?"btn-danger":"btn-primary"
+n=r()(e.message).dialog(r.a.extend({},{modal:true,close:o,buttons:[{text:l.t("#buttons.cancel","Cancel"),click(){r()(this).dialog("close")}},{text:l.t("#buttons.delete","Delete"),class:i,click(){a=true
+r()(this).dialog("close")}}]},t))
+return}a=confirm(e.message)}o()}
+r.a.fn.confirmDelete.defaults={get message(){return l.t("confirms.default_delete_thing","Are you sure you want to delete this?")}}
+r.a.fn.fragmentChange=function(e){if(e&&true!==e){const n=(window.location.search||"").replace(/^\?/,"").split("&")
+let a=null
+for(var t=0;t<n.length;t++){const e=n[t]
+e&&0===e.indexOf("hash=")&&(a="#"+e.substring(5))}this.bind("document_fragment_change",e)
+const o=this
+let i=false
+for(t=0;t<r.a._checkFragments.fragmentList.length;t++){const e=r.a._checkFragments.fragmentList[t]
+e.doc[0]==o[0]&&(i=true)}i||r.a._checkFragments.fragmentList.push({doc:o,fragment:""})
+r()(window).bind("hashchange",r.a._checkFragments)
+setTimeout(()=>{a&&a.length>0?o.triggerHandler("document_fragment_change",a):o&&o[0]&&o[0].location&&o[0].location.hash.length>0&&o.triggerHandler("document_fragment_change",o[0].location.hash)},500)}else this.triggerHandler("document_fragment_change",this[0].location.hash)
+return this}
+r.a._checkFragments=function(){const e=r.a._checkFragments.fragmentList
+for(let t=0;t<e.length;t++){const n=e[t]
+const a=n.doc
+if(a[0].location.hash!=n.fragment){a.triggerHandler("document_fragment_change",a[0].location.hash)
+n.fragment=a[0].location.hash
+r.a._checkFragments.fragmentList[t]=n}}}
+r.a._checkFragments.fragmentList=[]
+r.a.fn.clickLink=function(){const e=this.eq(0)
+e.hasClass("disabled_link")||e.click()}
+r.a.fn.showIf=function(e){if(r.a.isFunction(e))return this.each((function(t){r()(this).showIf(e.call(this))}))
+e?this.show():this.hide()
+return this}
+r.a.fn.disableIf=function(e){r.a.isFunction(e)&&(e=e.call(this))
+this.prop("disabled",!!e)
+return this}
+r.a.fn.indicate=function(e){e=e||{}
+let t
+if("remove"==e){t=this.data("indicator")
+t&&t.remove()
+return}r()(".indicator_box").remove()
+let n=this.offset()
+e&&e.offset&&(n=e.offset)
+const a=this.width()
+const o=this.height()
+const i=(e.container||this).zIndex()
+t=r()(document.createElement("div"))
+t.css({width:a+6,height:o+6,top:n.top-3,left:n.left-3,zIndex:i+1,position:"absolute",display:"block","-moz-border-radius":5,opacity:.8,border:"2px solid #870",backgroundColor:"#fd0"})
+t.addClass("indicator_box")
+t.mouseover((function(){r()(this).stop().fadeOut("fast",(function(){r()(this).remove()}))}))
+this.data("indicator")&&this.indicate("remove")
+this.data("indicator",t)
+r()("body").append(t)
+e&&e.singleFlash?t.hide().fadeIn().animate({opacity:.8},500).fadeOut("slow",(function(){r()(this).remove()})):t.hide().fadeIn().animate({opacity:.8},500).fadeOut("slow").fadeIn("slow").animate({opacity:.8},2500).fadeOut("slow",(function(){r()(this).remove()}))
+e&&e.scroll&&r()("html,body").scrollToVisible(t)}
+r.a.fn.hasScrollbar=function(){return this.length&&this[0].clientHeight<this[0].scrollHeight}
+r.a.fn.log=function(e){console.log("%s: %o",e,this)
+return this}
+r.a.fn.fillWindowWithMe=function(e){const t=r.a.extend({minHeight:400},e),n=r()(this),a=r()("#wrapper"),o=r()("#main"),i=r()("#not_right_side"),s=r()(window),l=r()(this).add(t.alsoResize)
+function c(){l.height(0)
+const e=s.height()-(a.offset().top+a.outerHeight())+(o.height()-i.height()),c=Math.max(400,e)
+l.height(c)
+r.a.isFunction(t.onResize)&&t.onResize.call(n,c)}c()
+s.unbind("resize.fillWindowWithMe").bind("resize.fillWindowWithMe",c)
+return this}
+r.a.fn.autoGrowInput=function(e){e=r.a.extend({maxWidth:1e3,minWidth:0,comfortZone:70},e)
+this.filter("input:text").each((function(){let t=e.minWidth||r()(this).width(),n="",a=r()(this),o=r()("<tester/>").css({position:"absolute",top:-9999,left:-9999,width:"auto",fontSize:a.css("fontSize"),fontFamily:a.css("fontFamily"),fontWeight:a.css("fontWeight"),letterSpacing:a.css("letterSpacing"),whiteSpace:"nowrap"}),i=function(){setTimeout(()=>{if(n===(n=a.val()))return
+o.text(n)
+const r=o.width(),i=r+e.comfortZone>=t?r+e.comfortZone:t,s=a.width(),l=i<s&&i>=t||i>t&&i<e.maxWidth
+l&&a.width(i)})}
+o.insertAfter(a)
+r()(this).bind("keyup keydown blur update change",i)}))
+return this}
+r.a},msTH:function(e,t,n){"use strict"
+var a=n("ouhR")
+var o=n.n(a)
+var r=n("Y/W1")
+var i=n.n(r)
+var s=n("gI0r")
+var l=n("HGxv")
+const c=Object(l["useScope"])("user_content")
+const d={translateMathmlForScreenreaders(e){var t,n
+if(!(null!==(t=ENV)&&void 0!==t&&null!==(n=t.FEATURES)&&void 0!==n&&n.new_math_equation_handling)){const t=o()("<div/>").html(e.attr("x-canvaslms-safe-mathml")).html()
+const n=o()('<span class="hidden-readable"></span>')
+n.html(t)
+return n}},toMediaCommentLink(e){const t=o()(`<a\n        id='media_comment_${Object(s["a"])(o()(e).data("media_comment_id"))}'\n        data-media_comment_type='${Object(s["a"])(o()(e).data("media_comment_type"))}'\n        class='instructure_inline_media_comment ${Object(s["a"])(e.nodeName.toLowerCase())}_comment'\n        data-alt='${Object(s["a"])(o()(e).attr("data-alt"))}'\n      />`)
+t.html(o()(e).html())
+return t},convert(e,t={}){const n=o()("<div />").html(e)
+n.find("video.instructure_inline_media_comment,audio.instructure_inline_media_comment").replaceWith((function(){return d.toMediaCommentLink(this)}))
+n.find("object.instructure_user_content:not(#kaltura_player) embed").remove()
+if(!t.forEditing){n.find("object.instructure_user_content,embed.instructure_user_content").replaceWith((function(){const e=o()(this)
+if(!e.data("uc_snippet")||!e.data("uc_sig"))return this
+const t=i.a.uniqueId("uc_")
+let n="/object_snippet"
+ENV.files_domain&&(n=`//${ENV.files_domain}${n}`)
+const a=o()(`<form\n            action='${Object(s["a"])(n)}'\n            method='post'\n            class='user_content_post_form'\n            target='${Object(s["a"])(t)}'\n            id='form-${Object(s["a"])(t)}'\n          />`)
+a.append(o()("<input type='hidden'/>").attr({name:"object_data",value:e.data("uc_snippet")}))
+a.append(o()("<input type='hidden'/>").attr({name:"s",value:e.data("uc_sig")}))
+o()("body").append(a)
+setTimeout(()=>a.submit(),0)
+return o()(`<iframe\n            class='user_content_iframe'\n            name='${Object(s["a"])(t)}'\n            style='width: ${Object(s["a"])(e.data("uc_width"))}; height: ${Object(s["a"])(e.data("uc_height"))};'\n            frameborder='0'\n            title='${Object(s["a"])(c.t("User Content"))}'\n          />`)}))
+n.find("img.equation_image").each((e,t)=>{const n=o()(t)
+const a=d.translateMathmlForScreenreaders(n)
+n.removeAttr("x-canvaslms-safe-mathml")
+n.after(a)})}return n.html()}}
+t["a"]=d},pgkc:function(e,t,n){"use strict"
+var a=n("ouhR")
+var o=n.n(a)
+var r=n("HGxv")
+var i=n("qqwe")
+var s=n("GGFl")
+var l=n("3O+N")
+var c=n.n(l)
+n("BGrI")
+var d=c.a.default
+var u=d.template,p=d.templates=d.templates||{}
+var h="/work/canvas-deploy/generated/ui/shared/signup-dialog/jst/teacherDialog"
+p[h]=u((function(e,t,n,a,o){this.compilerInfo=[4,">= 1.0.0"]
+n=this.merge(n,e.helpers)
+o=o||{}
+var r,i,s,l="",c="function",d=n.helperMissing,u=this.escapeExpression,p=this
+function h(e,t){var a,o,r=""
+r+='\n    <div class="control-group">\n      <div class="controls">\n        <label class="checkbox">\n          <input type="checkbox" name="user[terms_of_use]" value="1">\n          '
+if(o=n.terms_html)a=o.call(e,{hash:{},data:t})
+else{o=e&&e.terms_html
+a=typeof o===c?o.call(e,{hash:{},data:t}):o}(a||0===a)&&(r+=a)
+r+="\n        </label>\n      </div>\n    </div>\n    "
+return r}function m(e,t){return'\n    <div class="control-group">\n      <div class="controls">\n        <div class="g-recaptcha"></div>\n      </div>\n    </div>\n    '}l+='<div class="registration-dialog">\n  <form class="form-horizontal bootstrap-form" method="post" action="/users">\n    <div class="control-group">\n      <label class="control-label" for="teacher_name">'+u((i=n.t||t&&t.t,s={hash:{scope:"registration.teacher_dialog"},data:o},i?i.call(t,"labels.name","Name",s):d.call(t,"t","labels.name","Name",s)))+'</label>\n      <div class="controls">\n        <input type="text" id="teacher_name" name="user[name]">\n      </div>\n    </div>\n    <div class="control-group">\n      <label class="control-label" for="teacher_email">'+u((i=n.t||t&&t.t,s={hash:{scope:"registration.teacher_dialog"},data:o},i?i.call(t,"labels.email","Email",s):d.call(t,"t","labels.email","Email",s)))+'</label>\n      <div class="controls">\n        <input type="text" id="teacher_email" name="pseudonym[unique_id]">\n      </div>\n    </div>\n    '
+r=n["if"].call(t,t&&t.terms_required,{hash:{},inverse:p.noop,fn:p.program(1,h,o),data:o});(r||0===r)&&(l+=r)
+l+="\n    "
+r=n["if"].call(t,t&&t.recaptcha,{hash:{},inverse:p.noop,fn:p.program(3,m,o),data:o});(r||0===r)&&(l+=r)
+l+='\n    <div class="control-group">\n      <div class="controls">\n        <input type="hidden" name="user[initial_enrollment_type]" value="teacher">\n        <button class="btn btn-primary" type="submit">'+u((i=n.t||t&&t.t,s={hash:{scope:"registration.teacher_dialog"},data:o},i?i.call(t,"buttons.start_teaching","Start Teaching",s):d.call(t,"t","buttons.start_teaching","Start Teaching",s)))+"</button>\n      </div>\n    </div>\n  </form>\n</div>\n"
+return l}))
+var m=p[h]
+var f=c.a.default
+var v=f.template,_=f.templates=f.templates||{}
+var g="/work/canvas-deploy/generated/ui/shared/signup-dialog/jst/studentDialog"
+_[g]=v((function(e,t,n,a,o){this.compilerInfo=[4,">= 1.0.0"]
+n=this.merge(n,e.helpers)
+o=o||{}
+var r,i,s,l="",c=n.helperMissing,d=this.escapeExpression,u="function",p=this
+function h(e,t){var a,o,r=""
+r+='\n    <div class="control-group">\n      <label class="control-label" for="student_email">'+d((a=n.t||e&&e.t,o={hash:{scope:"registration.student_dialog"},data:t},a?a.call(e,"labels.email","Email",o):c.call(e,"t","labels.email","Email",o)))+'</label>\n      <div class="controls">\n        <input type="email" id="student_email" name="pseudonym[path]">\n      </div>\n    </div>\n    '
+return r}function m(e,t){var a,o,r=""
+r+='\n    <div class="control-group">\n      <div class="controls">\n        <label class="checkbox">\n          <input type="checkbox" name="user[terms_of_use]" value="1">\n          '
+if(o=n.terms_html)a=o.call(e,{hash:{},data:t})
+else{o=e&&e.terms_html
+a=typeof o===u?o.call(e,{hash:{},data:t}):o}(a||0===a)&&(r+=a)
+r+="\n        </label>\n      </div>\n    </div>\n    "
+return r}function f(e,t){return'\n    <div class="control-group">\n      <div class="controls">\n        <div class="g-recaptcha"></div>\n      </div>\n    </div>\n    '}l+='<div class="registration-dialog">\n  <form class="form-horizontal bootstrap-form" method="post" action="/users">\n    <div class="control-group">\n      <label class="control-label" for="student_join_code">'+d((i=n.t||t&&t.t,s={hash:{scope:"registration.student_dialog"},data:o},i?i.call(t,"labels.join_code","Join Code",s):c.call(t,"t","labels.join_code","Join Code",s)))+'</label>\n      <div class="controls">\n        <input type="text" id="student_join_code" name="user[self_enrollment_code]">\n      </div>\n    </div>\n    <div class="control-group">\n      <label class="control-label" for="student_name">'+d((i=n.t||t&&t.t,s={hash:{scope:"registration.student_dialog"},data:o},i?i.call(t,"labels.name","Full Name",s):c.call(t,"t","labels.name","Full Name",s)))+'</label>\n      <div class="controls">\n        <input type="text" id="student_name" name="user[name]">\n      </div>\n    </div>\n    <div class="control-group">\n      <label class="control-label" for="student_username">'+d((i=n.t||t&&t.t,s={hash:{scope:"registration.student_dialog"},data:o},i?i.call(t,"labels.username","Username",s):c.call(t,"t","labels.username","Username",s)))+'</label>\n      <div class="controls">\n        <input type="text" id="student_username" name="pseudonym[unique_id]">\n      </div>\n    </div>\n    <div class="control-group">\n      <label class="control-label" for="student_password">'+d((i=n.t||t&&t.t,s={hash:{scope:"registration.student_dialog"},data:o},i?i.call(t,"labels.password","Password",s):c.call(t,"t","labels.password","Password",s)))+'</label>\n      <div class="controls">\n        <input type="password" id="student_password" name="pseudonym[password]">\n      </div>\n    </div>\n    <div class="control-group">\n      <label class="control-label" for="student_password_confirmation">'+d((i=n.t||t&&t.t,s={hash:{scope:"registration.student_dialog"},data:o},i?i.call(t,"labels.password_confirmation","Confirm Password",s):c.call(t,"t","labels.password_confirmation","Confirm Password",s)))+'</label>\n      <div class="controls">\n        <input type="password" id="student_password_confirmation" name="pseudonym[password_confirmation]">\n      </div>\n    </div>\n    '
+r=n["if"].call(t,t&&t.require_email,{hash:{},inverse:p.noop,fn:p.program(1,h,o),data:o});(r||0===r)&&(l+=r)
+l+="\n    "
+r=n["if"].call(t,t&&t.terms_required,{hash:{},inverse:p.noop,fn:p.program(3,m,o),data:o});(r||0===r)&&(l+=r)
+l+="\n    "
+r=n["if"].call(t,t&&t.recaptcha,{hash:{},inverse:p.noop,fn:p.program(5,f,o),data:o});(r||0===r)&&(l+=r)
+l+='\n    <div class="control-group">\n      <div class="controls">\n        <input type="hidden" name="user[initial_enrollment_type]" value="student">\n        <input type="hidden" name="self_enrollment" value="1">\n        <input type="hidden" name="pseudonym_type" value="username">\n        <button class="btn btn-primary" type="submit">'+d((i=n.t||t&&t.t,s={hash:{scope:"registration.student_dialog"},data:o},i?i.call(t,"buttons.start_learning","Start Learning",s):c.call(t,"t","buttons.start_learning","Start Learning",s)))+"</button>\n      </div>\n    </div>\n  </form>\n</div>\n"
+return l}))
+var b=_[g]
+var y=c.a.default
+var w=y.template,x=y.templates=y.templates||{}
+var k="/work/canvas-deploy/generated/ui/shared/signup-dialog/jst/parentDialog"
+x[k]=w((function(e,t,n,a,o){this.compilerInfo=[4,">= 1.0.0"]
+n=this.merge(n,e.helpers)
+o=o||{}
+var r,i,s,l="",c="function",d=this.escapeExpression,u=n.helperMissing,p=this
+function h(e,t){var a,o,r=""
+r+='\n    <div class="control-group">\n      <div class="controls">\n        <label class="checkbox">\n          <input type="checkbox" name="user[terms_of_use]" value="1">\n          '
+if(o=n.terms_html)a=o.call(e,{hash:{},data:t})
+else{o=e&&e.terms_html
+a=typeof o===c?o.call(e,{hash:{},data:t}):o}(a||0===a)&&(r+=a)
+r+="\n        </label>\n      </div>\n    </div>\n    "
+return r}function m(e,t){return'\n    <div class="control-group">\n      <div class="controls">\n        <div class="g-recaptcha"></div>\n      </div>\n    </div>\n    '}l+='<div class="registration-dialog">\n  <form class="form-horizontal bootstrap-form" method="post" action="'
+if(i=n.path)r=i.call(t,{hash:{},data:o})
+else{i=t&&t.path
+r=typeof i===c?i.call(t,{hash:{},data:o}):i}l+=d(r)+'">\n    <div class="control-group">\n      <label class="control-label" for="parent_name">'+d((i=n.t||t&&t.t,s={hash:{scope:"registration.parent_dialog"},data:o},i?i.call(t,"labels.name","Your Name",s):u.call(t,"t","labels.name","Your Name",s)))+'</label>\n      <div class="controls">\n        <input type="text" id="parent_name" name="user[name]">\n      </div>\n    </div>\n    <div class="control-group">\n      <label class="control-label" for="parent_email">'+d((i=n.t||t&&t.t,s={hash:{scope:"registration.parent_dialog"},data:o},i?i.call(t,"labels.email","Your Email",s):u.call(t,"t","labels.email","Your Email",s)))+'</label>\n      <div class="controls">\n        <input type="text" id="parent_email" name="pseudonym[unique_id]">\n      </div>\n    </div>\n    <div class="control-group">\n      <label class="control-label" for="parent_child_username">'+d((i=n.t||t&&t.t,s={hash:{scope:"registration.parent_dialog"},data:o},i?i.call(t,"labels.username","Child's Username",s):u.call(t,"t","labels.username","Child's Username",s)))+'</label>\n      <div class="controls">\n        <input type="text" id="parent_child_username" name="observee[unique_id]">\n      </div>\n    </div>\n    <div class="control-group">\n      <label class="control-label" for="parent_child_password">'+d((i=n.t||t&&t.t,s={hash:{scope:"registration.parent_dialog"},data:o},i?i.call(t,"labels.password","Child's Password",s):u.call(t,"t","labels.password","Child's Password",s)))+'</label>\n      <div class="controls">\n        <input type="password" id="parent_child_password" name="observee[password]">\n      </div>\n    </div>\n    '
+r=n["if"].call(t,t&&t.terms_required,{hash:{},inverse:p.noop,fn:p.program(1,h,o),data:o});(r||0===r)&&(l+=r)
+l+="\n    "
+r=n["if"].call(t,t&&t.recaptcha,{hash:{},inverse:p.noop,fn:p.program(3,m,o),data:o});(r||0===r)&&(l+=r)
+l+='\n    <div class="control-group">\n      <div class="controls">\n        <input type="hidden" name="user[initial_enrollment_type]" value="observer">\n        <button class="btn btn-primary" type="submit">'+d((i=n.t||t&&t.t,s={hash:{scope:"registration.parent_dialog"},data:o},i?i.call(t,"buttons.start_participating","Start Participating",s):u.call(t,"t","buttons.start_participating","Start Participating",s)))+"</button>\n      </div>\n    </div>\n  </form>\n</div>\n"
+return l}))
+var C=x[k]
+var E=c.a.default
+var O=E.template,S=E.templates=E.templates||{}
+var N="/work/canvas-deploy/generated/ui/shared/signup-dialog/jst/newParentDialog"
+S[N]=O((function(e,t,n,a,o){this.compilerInfo=[4,">= 1.0.0"]
+n=this.merge(n,e.helpers)
+o=o||{}
+var r,i,s,l="",c="function",d=this.escapeExpression,u=n.helperMissing,p=this
+function h(e,t){var a,o,r=""
+r+='\n    <div class="ic-Form-control">\n      <label class="checkbox">\n        <input type="checkbox" name="user[terms_of_use]" value="1">\n        '
+if(o=n.terms_html)a=o.call(e,{hash:{},data:t})
+else{o=e&&e.terms_html
+a=typeof o===c?o.call(e,{hash:{},data:t}):o}(a||0===a)&&(r+=a)
+r+="\n      </label>\n    </div>\n    "
+return r}function m(e,t){return'\n    <div class="control-group">\n      <div class="controls">\n        <div class="g-recaptcha"></div>\n      </div>\n    </div>\n    '}l+='<div class="registration-dialog">\n  <form class="form-horizontal bootstrap-form" method="post" action="'
+if(i=n.path)r=i.call(t,{hash:{},data:o})
+else{i=t&&t.path
+r=typeof i===c?i.call(t,{hash:{},data:o}):i}l+=d(r)+'">\n    <div class="ic-Form-control">\n      <label class="ic-Label" for="parent_name">'+d((i=n.t||t&&t.t,s={hash:{scope:"registration.new_parent_dialog"},data:o},i?i.call(t,"labels.name","Your Name",s):u.call(t,"t","labels.name","Your Name",s)))+'</label>\n      <input class="ic-Input" type="text" id="parent_name" name="user[name]">\n    </div>\n    <div class="ic-Form-control">\n      <label class="ic-Label" for="parent_email">'+d((i=n.t||t&&t.t,s={hash:{scope:"registration.new_parent_dialog"},data:o},i?i.call(t,"labels.email","Your Email",s):u.call(t,"t","labels.email","Your Email",s)))+'</label>\n      <input class="ic-Input" type="email" id="parent_email" name="pseudonym[unique_id]">\n    </div>\n    <div class="ic-Form-control">\n      <label class="ic-Label" for="password">'+d((i=n.t||t&&t.t,s={hash:{scope:"registration.new_parent_dialog"},data:o},i?i.call(t,"labels.password","Password",s):u.call(t,"t","labels.password","Password",s)))+'</label>\n      <input class="ic-Input" type="password" id="password" name="pseudonym[password]">\n    </div>\n    <div class="ic-Form-control">\n      <label class="ic-Label" for="confirm_password">'+d((i=n.t||t&&t.t,s={hash:{scope:"registration.new_parent_dialog"},data:o},i?i.call(t,"labels.confirm_password","Re-enter Password",s):u.call(t,"t","labels.confirm_password","Re-enter Password",s)))+'</label>\n      <input class="ic-Input" type="password" id="confirm_password" name="pseudonym[password_confirmation]">\n    </div>\n    <div class="ic-Form-control">\n      <div class=\'pairing-code-text\'>\n        <label class="ic-Label" for="pairing_code">'+d((i=n.t||t&&t.t,s={hash:{scope:"registration.new_parent_dialog"},data:o},i?i.call(t,"labels.code","Student Pairing Code",s):u.call(t,"t","labels.code","Student Pairing Code",s)))+"</label>\n        <a href='"+d((i=n.t||t&&t.t,s={hash:{scope:"registration.new_parent_dialog"},data:o},i?i.call(t,"#community.resource_pairing_codes_faq","",s):u.call(t,"t","#community.resource_pairing_codes_faq","",s)))+"' target='_blank'>"+d((i=n.t||t&&t.t,s={hash:{scope:"registration.new_parent_dialog"},data:o},i?i.call(t,"anchor.pairing_code","What is a pairing code?",s):u.call(t,"t","anchor.pairing_code","What is a pairing code?",s)))+'</a>\n      </div>\n      <input class="ic-Input" type="text" id="pairing_code" name="pairing_code[code]" autocapitalize="off" autocorrect="off">\n    </div>\n    '
+r=n["if"].call(t,t&&t.terms_required,{hash:{},inverse:p.noop,fn:p.program(1,h,o),data:o});(r||0===r)&&(l+=r)
+l+="\n    "
+r=n["if"].call(t,t&&t.recaptcha,{hash:{},inverse:p.noop,fn:p.program(3,m,o),data:o});(r||0===r)&&(l+=r)
+l+='\n    <div class="ic-Form-control">\n      <input type="hidden" name="user[initial_enrollment_type]" value="observer" />\n      <input type="hidden" name="user[skip_registration]" value="1" />\n      <input type="hidden" name="communication_channel[skip_confirmation]" value="1" />\n      <div class=\'button-container\'>\n        <button class="btn btn-secondary dialog_closer">'+d((i=n.t||t&&t.t,s={hash:{scope:"registration.new_parent_dialog"},data:o},i?i.call(t,"buttons.cancel","Cancel",s):u.call(t,"t","buttons.cancel","Cancel",s)))+'</button>\n        <button class="btn btn-primary" type="submit">'+d((i=n.t||t&&t.t,s={hash:{scope:"registration.new_parent_dialog"},data:o},i?i.call(t,"buttons.start_participating","Start Participating",s):u.call(t,"t","buttons.start_participating","Start Participating",s)))+"</button>\n      </div>\n    </div>\n  </form>\n</div>\n"
+return l}))
+var T=S[N]
+var j=c.a.default
+var q=j.template,I=j.templates=j.templates||{}
+var A="/work/canvas-deploy/generated/ui/shared/signup-dialog/jst/samlDialog"
+I[A]=q((function(e,t,n,a,o){this.compilerInfo=[4,">= 1.0.0"]
+n=this.merge(n,e.helpers)
+o=o||{}
+var r,i,s,l="",c="function",d=this.escapeExpression,u=n.helperMissing,p=this
+function h(e,t){var a,o,r=""
+r+='\n            <div class="control-group">\n                <div class="controls">\n                    <label class="checkbox">\n                        <input type="checkbox" name="user[terms_of_use]" value="1">\n                        '
+if(o=n.terms_html)a=o.call(e,{hash:{},data:t})
+else{o=e&&e.terms_html
+a=typeof o===c?o.call(e,{hash:{},data:t}):o}(a||0===a)&&(r+=a)
+r+="\n                    </label>\n                </div>\n            </div>\n        "
+return r}function m(e,t){return'\n        <div class="control-group">\n            <div class="controls">\n            <div class="g-recaptcha"></div>\n            </div>\n        </div>\n        '}l+='<div class="registration-dialog">\n    <form class="form-horizontal bootstrap-form" method="post" action="'
+if(i=n.path)r=i.call(t,{hash:{},data:o})
+else{i=t&&t.path
+r=typeof i===c?i.call(t,{hash:{},data:o}):i}l+=d(r)+'">\n        <div class="control-group">\n            <label class="control-label" for="parent_name">'+d((i=n.t||t&&t.t,s={hash:{i18n_inferred_key:true},data:o},i?i.call(t,"your_name_7665e1d8","Your Name",s):u.call(t,"t","your_name_7665e1d8","Your Name",s)))+'</label>\n            <div class="controls">\n                <input type="text" id="parent_name" name="user[name]">\n            </div>\n        </div>\n        <div class="control-group">\n            <label class="control-label" for="parent_email">'+d((i=n.t||t&&t.t,s={hash:{i18n_inferred_key:true},data:o},i?i.call(t,"your_email_b5364bee","Your Email",s):u.call(t,"t","your_email_b5364bee","Your Email",s)))+'</label>\n            <div class="controls">\n                <input type="text" id="parent_email" name="pseudonym[unique_id]"><div id="parent_email_error" class=\'error_message\'></div>\n            </div>\n        </div>\n        <div class="control-group">\n            <label class="control-label" for="parent_child_username">'+d((i=n.t||t&&t.t,s={hash:{i18n_inferred_key:true},data:o},i?i.call(t,"child_s_username_dde3aa9","Child's Username",s):u.call(t,"t","child_s_username_dde3aa9","Child's Username",s)))+'</label>\n            <div class="controls">\n                <input type="text" id="parent_child_username" name="observee[unique_id]"><div id="parent_child_username_error" class=\'error_message\'></div>\n            </div>\n        </div>\n        '
+r=n["if"].call(t,t&&t.terms_required,{hash:{},inverse:p.noop,fn:p.program(1,h,o),data:o});(r||0===r)&&(l+=r)
+l+="\n        "
+r=n["if"].call(t,t&&t.recaptcha,{hash:{},inverse:p.noop,fn:p.program(3,m,o),data:o});(r||0===r)&&(l+=r)
+l+='\n        <div class="control-group">\n        <p>'+d((i=n.t||t&&t.t,s={hash:{i18n_inferred_key:true},data:o},i?i.call(t,"you_will_be_redirected_to_a_login_page_where_you_w_fc8df402","You will be redirected to a Login page where you will need to log in with your child's credentials.",s):u.call(t,"t","you_will_be_redirected_to_a_login_page_where_you_w_fc8df402","You will be redirected to a Login page where you will need to log in with your child's credentials.",s)))+'</p>\n        </div>\n        <div class="control-group">\n            <div class="controls">\n                <input type="hidden" name="user[initial_enrollment_type]" value="observer">\n                <button class="btn btn-primary" type="submit">'+d((i=n.t||t&&t.t,s={hash:{i18n_inferred_key:true},data:o},i?i.call(t,"start_participating_f0c75256","Start Participating",s):u.call(t,"t","start_participating_f0c75256","Start Participating",s)))+"</button>\n            </div>\n        </div>\n    </form>\n</div>"
+return l}))
+var D=I[A]
+const F=Object(r["useScope"])("site")
+function P(e){if(!(ENV.ACCOUNT&&ENV.ACCOUNT.privacy_policy_url))return
+const t=o()("<a>",{href:ENV.ACCOUNT.privacy_policy_url,style:"padding-left: 1em; line-height: 3em",class:"privacy_policy_link",target:"_blank"})
+const n=e.closest(".ui-dialog").find(".ui-dialog-buttonpane")
+if(!n.find(".privacy_policy_link").length){t.text(F.t("view_privacy_policy","View Privacy Policy"))
+n.append(t)}}var L=n("gI0r")
+var M=n("Y/W1")
+var z=n.n(M)
+const R=Object(r["useScope"])("validate")
+o.a.fn.validate=function(){const e={}
+this.find("[required]").each((function(){const t=o()(this)
+const n=t.attr("name")
+const a=t.val()
+""===a&&(e[n]||(e[n]=[])).push({name:n,type:"required",message:R.t("is_required","This field is required")})}))
+const t=z.a.size(e)>0
+if(t){this.data("errors",e)
+return false}this.data("errors",null)
+return true}
+n("Dhso")
+n("7AEQ")
+n("897F")
+var W,U,Y,H,V
+U=Object(r["useScope"])("registration")
+W={}
+H={teacherDialog:m,studentDialog:b,parentDialog:C,newParentDialog:T,samlDialog:D}
+V=function(e){var t,n
+n=e.terms_of_use_url,t=e.privacy_policy_url
+return U.t("teacher_dialog.agree_to_terms_and_pp","You agree to the *terms of use* and acknowledge the **privacy policy**.",{wrappers:['<a href="'+Object(L["a"])(n)+'" target="_blank">$1</a>','<a href="'+Object(L["a"])(t)+'" target="_blank">$1</a>']})}
+Y=function(e,t,n){var a,r,l,c
+null==n&&(n=null)
+if(!H[e])return
+r=null!=W[e]?W[e]:W[e]=o()("<div />")
+n||(n="/users")
+c=H[e]({account:ENV.ACCOUNT.registration_settings,terms_required:ENV.ACCOUNT.terms_required,recaptcha:ENV.ACCOUNT.recaptcha_key,terms_html:V(ENV.ACCOUNT),path:n,require_email:ENV.ACCOUNT.registration_settings.require_email})
+r.html(c)
+r.find(".signup_link").click(Object(i["a"])((function(){r.dialog("close")
+return Y(o()(this).data("template"),o()(this).prop("title"))})))
+a=r.find("form")
+a.formSubmit({required:function(){var e,t,n,o
+n=a.find(":input[name]").not("[type=hidden]")
+o=[]
+for(e=0,t=n.length;e<t;e++){l=n[e]
+o.push(l.name)}return o}(),disableWhileLoading:"spin_on_success",errorFormatter:s["a"],success:function(e){return e.destination?window.location=e.destination:e.course?window.location="/courses/"+e.course.course.id+"?registration_success=1":window.location="/?registration_success=1"},error:function(e){var t
+if(ENV.ACCOUNT.recaptcha_key){grecaptcha.reset(a.attr("data-captcha-id"))
+r.parent().find(".button_type_submit").prop("disabled",true)}if(e.error){t=e.error.message
+o()("input[name='"+Object(L["a"])(e.error.input_name)+"']").next(".error_message").text(Object(L["a"])(t))
+return o.a.screenReaderFlashMessage(t)}}})
+r.dialog({resizable:false,title:t,width:Math.min(screen.width,550),height:screen.height>750?"auto":screen.height,open:function(){var e
+o()(this).find("a").eq(0).blur()
+o()(this).find("button.ui-dialog-titlebar-close").focus()
+if(ENV.ACCOUNT.recaptcha_key){o()(this).find(".g-recaptcha")[0].addEventListener("load",(function(e){return e.target.tabIndex=0}),true)
+e=grecaptcha.render(o()(this).find(".g-recaptcha")[0],{sitekey:ENV.ACCOUNT.recaptcha_key,callback:function(){return r.parent().find("button[type=submit], .button_type_submit").prop("disabled",false)},"expired-callback":function(){return r.parent().find("button[type=submit], .button_type_submit").prop("disabled",true)}})
+a.attr("data-captcha-id",e)
+r.find("button[type=submit]").prop("disabled",true)}return"function"===typeof Y.afterRender?Y.afterRender():void 0},close:function(){"function"===typeof Y.teardown&&Y.teardown()
+return o()(".error_box").filter(":visible").remove()}})
+r.fixDialogButtons()
+ENV.ACCOUNT.recaptcha_key&&r.parent().find(".button_type_submit").prop("disabled",true)
+if(!ENV.ACCOUNT.terms_required)return P(r)}
+Y.templates=H
+var G=Y
+var $=c.a.default
+var B=$.template,J=$.templates=$.templates||{}
+var K="registration/teacherDialog"
+J[K]=B((function(e,t,n,a,o){this.compilerInfo=[4,">= 1.0.0"]
+n=this.merge(n,e.helpers)
+o=o||{}
+var r,i="",s="function",l=this.escapeExpression,c=this
+function d(e,t){var a,o,r=""
+r+='\n    <input type="hidden" name="'
+if(o=n.name)a=o.call(e,{hash:{},data:t})
+else{o=e&&e.name
+a=typeof o===s?o.call(e,{hash:{},data:t}):o}r+=l(a)+'" value="'
+if(o=n.value)a=o.call(e,{hash:{},data:t})
+else{o=e&&e.value
+a=typeof o===s?o.call(e,{hash:{},data:t}):o}r+=l(a)+'" />\n    '
+return r}function u(e,t){var a,o,r=""
+r+='\n    <div class="control-group">\n      <div class="controls">\n        <label class="checkbox">\n          <input type="checkbox" name="user[terms_of_use]" value="1">\n          You agree to the <a href="'
+if(o=n.terms_url)a=o.call(e,{hash:{},data:t})
+else{o=e&&e.terms_url
+a=typeof o===s?o.call(e,{hash:{},data:t}):o}r+=l(a)+'" target="_blank">terms of use</a> and acknowledge the <a href="'
+if(o=n.privacy_url)a=o.call(e,{hash:{},data:t})
+else{o=e&&e.privacy_url
+a=typeof o===s?o.call(e,{hash:{},data:t}):o}r+=l(a)+'" target="_blank">privacy policy</a>.\n        </label>\n      </div>\n    </div>\n    '
+return r}function p(e,t){return'\n    <div class="control-group">\n      <div class="controls">\n        <div class="g-recaptcha"></div>\n      </div>\n    </div>\n    '}i+='<div class="registration-dialog">\n  <form class="form-horizontal bootstrap-form" method="post" action="/users">\n    '
+r=n.each.call(t,(r=t&&t.account,null==r||false===r?r:r.tracking_fields),{hash:{},inverse:c.noop,fn:c.program(1,d,o),data:o});(r||0===r)&&(i+=r)
+i+='\n    <div class="control-group">\n      <label class="control-label" for="teacher_organization_type">Organization Type</label>\n      <div class="controls">\n        <select id="teacher_organization_type" name="user[organization_type]">\n          <option value="">-- Choose One --</option>\n          <option value="Higher Ed">Higher Ed</option>\n          <option value="Higher Ed For-Profit">Higher Ed For-Profit</option>\n          <option value="K12">K12</option>\n          <option value="K12 For-Profit">K12 For-Profit</option>\n          <option value="Corporate">Corporate</option>\n          <option value="Government">Government</option>\n        </select>\n      </div>\n    </div>\n    <div class="control-group">\n      <label class="control-label" for="teacher_school_position">Title</label>\n      <div class="controls">\n        <select id="teacher_school_position" name="user[school_position]">\n          <option value="">-- Choose One --</option>\n          <option class="higher-ed" value="CIO">CIO</option>\n          <option class="higher-ed" value="Dean">Dean</option>\n          <option class="higher-ed" value="Director">Director</option>\n          <option class="higher-ed" value="Instructional Designer">Instructional Designer</option>\n          <option class="higher-ed" value="LMS Administrator">LMS Administrator</option>\n          <option class="higher-ed" value="Provost">Provost</option>\n          <option class="higher-ed" value="School Administrator">School Administrator</option>\n          <option class="higher-ed" value="Student">Student</option>\n          <option class="higher-ed" value="Support">Support</option>\n          <option class="higher-ed" value="Teacher/Instructor">Teacher/Instructor</option>\n          <option class="higher-ed" value="Technologist">Technologist</option>\n          <option class="higher-ed" value="VP">VP</option>\n          <option class="k-12" value="Assistant Superintendent">Assistant Superintendent</option>\n          <option class="k-12" value="Bus/Finance/Purchasing Dir">Bus/Finance/Purchasing Dir</option>\n          <option class="k-12" value="ERate Administrator">ERate Administrator</option>\n          <option class="k-12" value="Instructional Media Svcs Dir">Instructional Media Svcs Dir</option>\n          <option class="k-12" value="Library/Media Specialist">Library/Media Specialist</option>\n          <option class="k-12" value="Network System Administrator">Network System Administrator</option>\n          <option class="k-12" value="Principal">Principal</option>\n          <option class="k-12" value="School Technology Coordinator">School Technology Coordinator</option>\n          <option class="k-12" value="Superintendent">Superintendent</option>\n          <option class="k-12" value="Teacher/Instructor">Teacher/Instructor</option>\n          <option class="k-12" value="Technology/Computer Coord">Technology/Computer Coord</option>\n          <option class="k-12" value="Technology Education Director">Technology Education Director</option>\n          <option class="corporate" value="C-Level">C-Level</option>\n          <option class="corporate" value="Director">Director</option>\n          <option class="corporate" value="Employee">Employee</option>\n          <option class="corporate" value="Manager">Manager</option>\n          <option class="corporate" value="VP">VP</option>\n          <option class="government" value="Executive Officer">Executive Officer</option>\n          <option class="government" value="GS 1-7">GS 1-7</option>\n          <option class="government" value="GS 8-10">GS 8-10</option>\n          <option class="government" value="GS 11-15">GS 11-15</option>\n          <option value="Other">Other</option>\n        </select>\n      </div>\n    </div>\n     <div class="control-group">\n      <label class="control-label" for="teacher_school_name">School / Organization</label>\n      <div class="controls">\n        <input type="text" id="teacher_school_name" name="user[school_name]">\n      </div>\n    </div>\n    <div class="control-group">\n      <label class="control-label" for="teacher_name">Name</label>\n      <div class="controls">\n        <input type="text" id="teacher_name" name="user[name]">\n      </div>\n    </div>\n    <div class="control-group">\n      <label class="control-label" for="teacher_phone">Phone Number</label>\n      <div class="controls">\n        <input type="text" id="teacher_phone" name="user[phone]">\n      </div>\n    </div>\n    <div class="control-group">\n      <label class="control-label" for="teacher_email">School Email (.edu)</label>\n      <div class="controls">\n        <input type="text" id="teacher_email" name="pseudonym[unique_id]">\n      </div>\n    </div>\n    <div class="control-group">\n      <label class="control-label" for="location">Location</label>\n      <div class="controls">\n        <select id="location" name="user[location]">\n          <option value="">-- Choose One --</option>\n          <option value="United States and Canada">United States and Canada</option>\n          <option value="Europe - UK">Europe - UK</option>\n          <option value="Europe - Other">Europe - Other</option>\n          <option value="Africa">Africa</option>\n          <option value="Asia and Middle East">Asia and Middle East</option>\n          <option value="Australia, New Zealand, and Oceania">Australia, New Zealand, and Oceania</option>\n          <option value="South America, Central America, and Caribbean">South America, Central America, and Caribbean</option>\n        </select>\n      </div>\n    </div>\n    '
+r=n["if"].call(t,t&&t.terms_required,{hash:{},inverse:c.noop,fn:c.program(3,u,o),data:o});(r||0===r)&&(i+=r)
+i+="\n    "
+r=n["if"].call(t,t&&t.recaptcha,{hash:{},inverse:c.noop,fn:c.program(5,p,o),data:o});(r||0===r)&&(i+=r)
+i+='\n    <div class="control-group">\n      <div class="controls">\n        <input type="hidden" name="user[initial_enrollment_type]" value="teacher">\n        <button class="btn btn-primary" type="submit">Start Teaching</button>\n      </div>\n    </div>\n  </form>\n</div>\n\n'
+return i}))
+var Z=J[K]
+var X=n("6NVu")
+var Q=function(e){var t,n,a,i,s
+e.afterRender=function(){var e,t,n
+e=o()("#teacher_organization_type")
+t=o()("#teacher_school_position")
+n=t.html()
+t.prop("disabled",true)
+return e.on("change",(function(){t.html(n)
+switch(e.val()){case"Higher Ed":case"Higher Ed For-Profit":return t.prop("disabled",false).find(".k-12, .corporate, .government").remove()
+case"K12":case"K12 For-Profit":return t.prop("disabled",false).find(".higher-ed, .corporate, .government").remove()
+case"Corporate":return t.prop("disabled",false).find(".k-12, .higher-ed, .government").remove()
+case"Government":return t.prop("disabled",false).find(".k-12, .higher-ed, .corporate").remove()
+default:return t.prop("disabled",true)}}))}
+e.teardown=function(){return o()("#teacher_organization_type").off("change")}
+s=null!=(n=ENV.ACCOUNT)?n.registration_settings:void 0
+if(null!=s?s.salesforce:void 0){e.templates.teacherDialog=Z
+t=Object(X["a"])()
+s.tracking_fields=[{name:"user[lead_source]",value:null!=(a=t.lead_source)?a:"Free_For_Teacher_Request"},{name:"user[lead_source_description]",value:null!=(i=t.lead_source_description)?i:r["default"].strftime(new Date,"%Y-%m-%d")}]}return e}
+t["a"]=Q(G)},torl:function(e,t,n){"use strict"
+var a=n("HGxv")
+var o=n("Y/W1")
+var r=n.n(o)
+var i=n("mX+G")
+var s=n.n(i)
+var l,c=function(e,t){for(var n in t)d.call(t,n)&&(e[n]=t[n])
+function a(){this.constructor=e}a.prototype=t.prototype
+e.prototype=new a
+e.__super__=t.prototype
+return e},d={}.hasOwnProperty
+l=Object(a["useScope"])("user")
+t["a"]=function(e){c(t,e)
+function t(){return t.__super__.constructor.apply(this,arguments)}t.prototype.modelType="user"
+t.prototype.resourceName="users"
+t.prototype.errorMap={name:{blank:l.t("errors.required","Required"),too_long:l.t("errors.too_long","Can't exceed %{max} characters",{max:255})},self_enrollment_code:{blank:l.t("errors.required","Required"),invalid:l.t("errors.invalid_code","Invalid code"),already_enrolled:l.t("errors.already_enrolled","You are already enrolled in this course"),concluded:l.t("This course has concluded"),full:l.t("errors.course_full","This course is full")},terms_of_use:{accepted:l.t("errors.terms","You must agree to the terms")}}
+t.prototype.enrollments=function(e,t){return r.a.where(this.get("enrollments"),e,t)}
+t.prototype.hasEnrollmentType=function(e){return!!this.enrollments({type:e},true)}
+t.prototype.hasEnrollmentRole=function(e){return!!this.enrollments({role:e},true)}
+t.prototype.findEnrollmentByRole=function(e){return this.enrollments({role:e},true)}
+t.prototype.allEnrollmentsByType=function(e){return this.enrollments({type:e})}
+t.prototype.allEnrollmentsByRole=function(e){return this.enrollments({role:e})}
+t.prototype.pending=function(e){return r.a.some(this.get("enrollments"),(function(t){var n
+return t.role===e&&("creation_pending"===(n=t.enrollment_state)||"invited"===n)}))}
+t.prototype.inactive=function(){return r.a.every(this.get("enrollments"),(function(e){return"inactive"===e.enrollment_state}))}
+t.prototype.sectionEditableEnrollments=function(){return r.a.select(this.get("enrollments"),(function(e){return"ObserverEnrollment"!==e.type}))}
+return t}(s.a.Model)}}])
+
+//# sourceMappingURL=79-c-76650cfcff.js.map

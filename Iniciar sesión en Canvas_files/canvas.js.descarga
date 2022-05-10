@@ -1,0 +1,653 @@
+$(".ic-Login-confirmation__header").css({'background': '#fff', 'border-bottom': '2px solid #34444f'});
+$(".ic-Login-confirmation__logo").css('height', 'inherit').attr("src","http://www.tecsup.edu.pe/canvas/logo-tv.png");
+
+// Ocultar configuraciones peligrosas
+$('#course_sis_source_id').attr('disabled', true);
+$('.reset_course_content_button').hide();
+if(ENV.current_user_id != 131122 && ENV.current_user_id != 43229  && ENV.current_user_id != 213896 && ENV.current_user_id != 857586 && ENV.current_user_id != 334302){	// Solo para Meli y Mila
+	$('#course_grading_scheme').parent().hide();
+	$('#sections_tab').hide();
+}
+if(ENV.current_user_id != 47049){	// Solo para Joseph
+	
+}
+
+$('.mobileLogin-Header').css({
+	'background-image':'url(https://instructure-uploads.s3.amazonaws.com/account_81840000000000001/attachments/19306/Logotipo.png)',
+	'background-size': '180px 39px',
+	'min-height': '48px'
+});
+
+$button = $('<a href="https://tecsup.instructure.com/login/saml" class="Button" style="display: block; margin-top: 20px;"><i style="display: inline-block; vertical-align: middle; width: 40px; height: 24px; background: url(https://campus.tecsup.edu.pe/campus/img/icon/social-google-plus-24.png) transparent 10px 50% no-repeat;"></i>Ingresa con tu correo de Tecsup</a>');
+$('#login_form').append($button);
+
+// Hide Commons
+$('#context_external_tool_1_menu_item').hide();
+
+$('#global_nav_calendar_link').hide();
+
+
+//LINKS DE LIBROS EBOOKS
+
+$(document).on("click", "a", function() {
+    //this == the link that was clicked
+    var href = $(this).attr("href");
+	var clase= $(this).hasClass("external");
+	if(href.startsWith('https://www.ebooks7-24.com:443/?il=') && clase){
+		window.open(href);
+		return false;
+	}
+});
+
+
+
+// Menu Recursos
+if(ENV.current_user_roles.indexOf('student') >= 0 || ENV.current_user_roles.indexOf('teacher') >= 0 || ENV.current_user_roles.indexOf('admin') >= 0) { 
+	$(document).ready(function() {
+		console.log('Menu Recursos'+ENV.current_user_roles);
+        //* set tray title, icon, links and footer here *//
+        //*  for user role based conditions see README  *//
+        var title   = 'Normas Tecsup',
+            svg     = 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDYwIDYwIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA2MCA2MDsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSI1MTJweCIgaGVpZ2h0PSI1MTJweCI+PGc+PHBhdGggZD0iTTQ1LDI1SDIwYy0wLjU1MiwwLTEsMC40NDctMSwxczAuNDQ4LDEsMSwxaDI1YzAuNTUyLDAsMS0wLjQ0NywxLTFTNDUuNTUyLDI1LDQ1LDI1eiIgZmlsbD0iI0ZGRkZGRiIvPjxwYXRoIGQ9Ik0yMCwxOWgxMGMwLjU1MiwwLDEtMC40NDcsMS0xcy0wLjQ0OC0xLTEtMUgyMGMtMC41NTIsMC0xLDAuNDQ3LTEsMVMxOS40NDgsMTksMjAsMTl6IiBmaWxsPSIjRkZGRkZGIi8+PHBhdGggZD0iTTQ1LDMzSDIwYy0wLjU1MiwwLTEsMC40NDctMSwxczAuNDQ4LDEsMSwxaDI1YzAuNTUyLDAsMS0wLjQ0NywxLTFTNDUuNTUyLDMzLDQ1LDMzeiIgZmlsbD0iI0ZGRkZGRiIvPjxwYXRoIGQ9Ik00NSw0MUgyMGMtMC41NTIsMC0xLDAuNDQ3LTEsMXMwLjQ0OCwxLDEsMWgyNWMwLjU1MiwwLDEtMC40NDcsMS0xUzQ1LjU1Miw0MSw0NSw0MXoiIGZpbGw9IiNGRkZGRkYiLz48cGF0aCBkPSJNNDUsNDlIMjBjLTAuNTUyLDAtMSwwLjQ0Ny0xLDFzMC40NDgsMSwxLDFoMjVjMC41NTIsMCwxLTAuNDQ3LDEtMVM0NS41NTIsNDksNDUsNDl6IiBmaWxsPSIjRkZGRkZGIi8+PHBhdGggZD0iTTQ5LDE0LjU4NlYwSDZ2NTVoNXY1aDQzVjE5LjU4Nkw0OSwxNC41ODZ6IE00MCw4LjQxNGw5LDlMNTAuNTg2LDE5SDQwVjguNDE0eiBNOCw1M1YyaDM5djEwLjU4NkwzOS40MTQsNUgxMXY0OEg4eiAgICBNMTMsNTh2LTNWN2gyNXYxNGgxNHYzN0gxM3oiIGZpbGw9IiNGRkZGRkYiLz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PC9zdmc+',
+			header  = 'En esta secciÃƒÂ³n encontrarÃƒÂ¡s tus documentos institucionales.';
+            trayLinks = [
+              //  { href: 'https://drive.google.com/open?id=1OeMZLpe9zmQwZ00cT52GssA4Wh0KIU3z', title: 'Reglamento de Becas', desc:'' },
+				  { href: 'https://drive.google.com/open?id=1NntntIGJWI9Olm9glFmHJQ95LP6oQ3qI', title: 'Reglamento Institucional', desc:'' },
+               // { href: 'https://drive.google.com/open?id=1kmDFz9gfJVR6Vksy0Brxlkbgei8MM9JT', title: 'Reglamento Institucional Tecsup Lima', desc:'' },
+				//{ href: 'https://drive.google.com/open?id=1LmrqWAWGd7-himmi8vUZb6zL75ffx1xl', title: 'Reglamento Institucional Tecsup Arequipa', desc:'' },
+				//{ href: 'https://drive.google.com/open?id=17hFnssgCK8M1G_HIof8jlW5mOpay7ClX', title: 'Reglamento Institucional Tecsup Trujillo', desc:'' },
+				//{ href: 'https://drive.google.com/open?id=1C92WgZvqqg9h7jJ_nf9Bk8Y2Ox4apOjt', title: 'Reglamento AcadÃƒÂ©mico PFR', desc:'' },
+               // { href: 'https://drive.google.com/open?id=13gVp10Nit4NaYnpPOrB_SRljTLLZyV7Y', title: 'Reglamento de Evaluaciones PFR', desc:'' },
+				//{ href: 'https://drive.google.com/open?id=1frdtPSQUbqSh_jrLhc4L7ZCVbqOz-0u2', title: 'Normas de Permanencia Tecsup', desc:'' },
+				{ href: 'https://drive.google.com/open?id=132r2hs7AtrypWSXPbPKD8Dyt5GOJK1xN', title: 'Reglamento de pensiones - Lima', desc:'' },
+				{ href: 'https://drive.google.com/open?id=1I9BNZLWpRN9QDb3gN8HqMrErZJBP9V7c', title: 'Reglamento de experiencias formativas - Lima', desc:'' },
+				{ href: 'https://drive.google.com/open?id=1DFrzdrf6JDCYwiR7FP1rmKRhXBUoy7yZ', title: 'Reglamento Conversa - Lima', desc:'' },
+				{ href: 'https://drive.google.com/open?id=1AZdh0lTZJVHRRQNnG9AVNxfmB4TVr5xd', title: 'Reglamento Conversa - Arequipa', desc:'' },
+				{ href: 'https://drive.google.com/open?id=1l1oZR6oKBKBFOUOjZ2A38m1m2FV_qiOY', title: 'GuÃƒÂ­a del estudiante - Lima', desc:'' },
+				{ separator: true },
+				{ subtitle: 'CrÃƒÂ©dito Educativo - Mayor de 18 aÃƒÂ±os' },
+				{ href: 'https://drive.google.com/open?id=12Dqh8rFMcdrthwRd0Jpcna6AKGs--oBo', title: 'Formato de solicitud simplificada', desc:'' },
+				{ href: 'https://drive.google.com/open?id=1dCo-XayjqyfymWiWDDhhjz1XeDJrUVGZ', title: 'Formulario', desc:'' },
+				{ href: 'https://drive.google.com/open?id=1tkSGAgxSjZJuX62vopUA-yr-Z52CFXVP', title: 'Hoja de Resumen', desc:'' },
+				{ href: 'https://drive.google.com/open?id=1O5awuG2kd9lWUfFs-rZxiw7GbS8yWuIp', title: 'Contrato Mutuo (legalizar firmas)', desc:'' },
+				{ href: 'https://drive.google.com/open?id=1AI46AdEITX9U_FP3dXVh03bhITf7yRwM', title: 'Convenio de IntegraciÃƒÂ³n (legalizar firmas)', desc:'' },
+				{ href: 'https://drive.google.com/open?id=1Gu6BgGYkmncDEJUwgaz9DqIJ-IBe6-qG', title: 'PagarÃƒÂ©', desc:'' },
+				{ separator: true },
+				{ subtitle: 'CrÃƒÂ©dito Educativo - Menor de 18 aÃƒÂ±os' },
+				{ href: 'https://drive.google.com/open?id=12Dqh8rFMcdrthwRd0Jpcna6AKGs--oBo', title: 'Formato de solicitud simplificada', desc:'' },
+				{ href: 'https://drive.google.com/open?id=1JiHwo50OqPqFFUXJsyLAhPczHcC5jcw9', title: 'Formulario', desc:'' },
+				{ href: 'https://drive.google.com/open?id=18Uax78zWlCM0Exiy3LxxrOVeZxqWZ5Ya', title: 'Hoja de Resumen', desc:'' },
+				{ href: 'https://drive.google.com/open?id=1XSEIlOIhthOziB9dQ2zGm5YF2Xxm0nND', title: 'Contrato Mutuo (legalizar firmas)', desc:'' },
+				{ href: 'https://drive.google.com/open?id=1c-u1SkeKWXeUQRcq87WML81poL6QVcpo', title: 'Convenio de IntegraciÃƒÂ³n (legalizar firmas)', desc:'' },
+				{ href: 'https://drive.google.com/open?id=19dFJEShu3tZvRI0X3rKvNfkSKpOefZ_D', title: 'PagarÃƒÂ©', desc:'' },
+            ],
+            footer  = '';
+            
+			
+        //* options are above for convenience, continue if you like *//
+        var tidle     = title.replace(/\s/, '_').toLowerCase(),
+        trayid    = 'global_nav_'+tidle+'_tray',
+        trayItems = '',
+        trayLinks = trayLinks.forEach(function(link) {
+			if(link.separator){
+				trayItems += '<li class="gcnt-list-item"><hr></li>';
+			}else if(link.subtitle){
+				trayItems += '<li class="gcnt-list-item" style="font-size: small; font-style: italic; font-weight: bold; margin-bottom: 20px;">'+link.subtitle+'</li>';
+			}else{
+				trayItems += '<li class="gcnt-list-item">'
+						  + '<span class="gcnt-list-link-wrapper">'
+						  + '<a target="_blank" rel="noopener" class="gcnt-list-link" href="'+link.href+'" role="button" tabindex="0">'+ link.title +'</a>'
+						  + '</span>';
+				// append link description if set
+				if(!!link.desc && link.desc.length > 1)
+					{ trayItems +='<div class="gcnt-link-desc">'+ link.desc +'</div>' }
+				trayItems += '</li>';
+			}
+        }),
+		
+        // tray html
+        tray = '<span id="'+trayid+'" style="display: none;">'
+            + '<span class="global-nav-custom-tray gnct-easing">'
+            + '<span role="region" aria-label="Global navigation tray" class="Global-navigation-tray">'
+            // begin close button
+            + '<span class="gcnt-tray-close-wrapper">'
+            + '<button id="'+trayid+'_close" type="button" role="button" tabindex="0" class="gcnt-tray-close-btn" style="margin:0px;">'
+            + '<span class="gcnt-tray-close-svg-wrapper">'
+            + '<svg name="IconXSolid" viewBox="0 0 1920 1920" style="fill:currentColor;width:1em;height:1em;" width="1em" height="1em" aria-hidden="true" role="presentation" disabled="true">'
+            + '<g role="presentation"><svg version="1.1" viewBox="0 0 1920 1920">'
+            + '<path d="M1743.858.012L959.869 783.877 176.005.012 0 176.142l783.74 783.989L0 1743.87 176.005 1920l783.864-783.74L1743.858 1920l176.13-176.13-783.865-783.74 783.865-783.988z" stroke="none" stroke-width="1"></path>'
+            + '</svg></g></svg><span class="gcnt-tray-close-txt">Close</span></span></button></span>'
+            // end of close button; begin tray header
+            + '<div class="tray-with-space-for-global-nav">'
+            + '<div id="custom_'+tidle+'_tray" class="gnct-content-wrap">'
+            + '<h1 class="gcnt-tray-h1">'+ title +'</h1><hr>'
+            // end tray header; begin tray links list
+            + '<ul class="gcnt-list">';
+			if(header.length > 1) {
+                tray += '<li class="gcnt-list-item">'+ header + '</li>'
+                      + '<li class="gcnt-list-item"><hr></li>';
+            }
+            tray += trayItems;
+            // end tray links; if there is a footer, append it
+            if(footer.length > 1) {
+                tray += '<li class="gcnt-list-item"><hr></li>'
+                      + '<li class="gcnt-list-item">'+ footer + '</li>';
+            }
+            // end tray html
+            tray += '</ul></div></div></span></span></span>';
+			
+		// global nav icon
+		var main = $('#main'),
+			menu = $('#menu'),
+			icon = $('<li>', {
+				id: 'global_nav_'+tidle+'_menu',
+				class: 'ic-app-header__menu-list-item',
+				html: '<a id="global_nav_'+tidle+'_link" href="javascript:void(0)" class="ic-app-header__menu-list-link">'
+				  + '<div class="menu-item-icon-container" role="presentation"><span class="svg-'+tidle+'-holder"></span></div>'
+				  + '<div class="menu-item__text">' + title + '</div></a>'
+				});
+			icon.find('.svg-'+tidle+'-holder').load(svg, function(){
+				var svg = $(this).find('svg')[0],
+					svg_id = 'global_nav_'+tidle+'_svg';
+					svg.setAttribute('id', svg_id);
+					svg.setAttribute('class', 'ic-icon-svg menu-item__icon ic-icon-svg--apps svg-icon-help ic-icon-svg-custom-tray')
+					svg.setAttribute('height', '32px');
+					$('#'+svg_id).find('path').removeAttr('fill')
+			});
+		//menu.append(icon);
+		icon.insertAfter($('#global_nav_courses_link').parent());
+		main.append(tray);
+		// if you ventured this far, please note variable reassignment
+		icon = $('#global_nav_'+tidle+'_menu');
+		tray = $('#'+trayid);
+
+		// TODO: there's a delay in switching active icon states, sometimes both are active for a moment
+
+		// multiple ways for the tray to get closed, reduce and reuse
+		function close_gnct() {
+			menu.find('a').each(function(){this.onmouseup = this.blur()})
+			tray.find('.gnct-easing').animate({
+				left: '-200px', opacity: .8
+			}, 300, 'linear', function() {
+				tray.hide()
+				icon.removeClass('ic-app-header__menu-list-item--active')
+			})
+		}
+		icon.click(function() {
+			// if the tray is open, close it
+			if($(this).hasClass('ic-app-header__menu-list-item--active')) {
+				close_gnct()
+			// else open the tray
+			} else {
+				menu.find('a').each(function(){this.onmouseup = this.blur()})
+				tray.show()
+				tray.find('.gnct-easing').animate({
+					left: '0px', opacity: 1
+				}, 300, 'linear', function() {
+					$('.ic-app-header__menu-list-item').removeClass('ic-app-header__menu-list-item--active');
+					icon.addClass('ic-app-header__menu-list-item--active');
+				})
+			}
+		});
+		// close the tray if the user clicks another nav icon that is not this one
+		$('.ic-app-header__menu-list-item').not(icon).click(function() { close_gnct(); });
+		// close the tray
+		$('#'+trayid+'_close').click(function() { close_gnct(); });
+    });
+}
+
+
+/*** Viewer fullscreen ***/
+
+$(function(){
+	
+	if($('body.ic-framed-lti-tool.assignments').length){
+		
+		var onresize = function(){
+			//$('.tool_content_wrapper').css('height', parseInt($('.tool_content_wrapper').css('width'))/1.58 + 'px');
+			$('.tool_content_wrapper').css('height', $(window).height() - 60 + 'px');
+		}
+		
+		onresize();
+		
+		$( window ).resize(function() {
+			onresize();
+		});
+		
+		$('#courseMenuToggle').click(function(){
+			setTimeout(function(){
+				onresize();
+			}, 200);
+		});
+		
+		$('#courseMenuToggle').click();
+				
+	}
+	
+});
+
+/*** END Viewer fullscreen ***/
+
+/*** HIDE Course Grading Schema for teacher ***/
+console.log(ENV.current_user_roles);
+if(ENV.current_user_roles.indexOf('root_admin') == -1) {
+	$('#course_grading_scheme').parent().remove();
+}
+
+
+/*** Show Accounts ***/
+$(function(){
+	
+	// ConfiguraciÃƒÂ³n de curso
+	if( $('#course_details_tabs').length ) {
+		
+		var lookup_account = function() {
+			
+			var accountid = $('#course_account_id').val();
+			
+			var settings = {
+				"method": "GET",
+				"url": "/api/v1/accounts/" + accountid,
+				/*"headers": {
+					"Authorization": "Bearer 123...",
+				}*/
+			}
+
+			$.ajax(settings).done(function (response) {
+				console.log(response);
+				console.log(response.sis_account_id);
+				$('#course_account_id').parent().find('div.aside.bottom-hint').remove();
+				$('#course_account_id').parent().append( $('<div class="aside bottom-hint"/>').text(response.sis_account_id) );
+			});
+			
+		};
+		
+		$('ul.ui-autocomplete').click(function(){
+			setTimeout(lookup_account, 200);
+		});
+		
+		$('#course_account_id').prop('type', 'text').change(function(){
+			lookup_account();
+		});
+		
+		lookup_account();
+		
+	}
+	
+	// Buscador de cursos
+	if( $("body[class^='context-account_'], body[class*=' context-account_']").length ) {
+		
+		setInterval(function(){
+			try {
+				
+				$('tbody[data-automation="courses list"] > tr > td > a').each(function(i, e){
+					if( !$(e).parent().parent().find('td[title]').length ) {
+						var course_url = $(e).attr('href');
+						console.log(course_url);
+						
+						var settings = {
+							"method": "GET",
+							"url": "/api/v1" + course_url,
+						}
+
+						$.ajax(settings).done(function (response) {
+							console.log(response);
+							
+							var settings = {
+								"method": "GET",
+								"url": "/api/v1/accounts/" + response.account_id,
+							}
+
+							$.ajax(settings).done(function (response) {
+								console.log(response);
+								$(e).parent().next().next().next().next().attr('title', response.sis_account_id);
+							});
+							
+						});
+						
+					}
+				});
+				
+			} catch(e) {
+				console.log(e.message);
+			}
+		}, 2000);
+		
+	}
+	
+});
+
+/*** Show Certificates ***/
+if(/*false &&*/ ENV.current_user_roles.indexOf('student') >= 0) { 
+	$(function(){
+		
+		try {
+			
+			// Get user information
+			var user_id = ENV.current_user_id;
+			
+			if(user_id == null || user_id.length > 16){
+				console.log("user_id " + user_id + " no vÃƒÂ¡lido.");
+				return;
+			}
+			
+			// Get Certificates https://academico.tecsup.edu.pe/pcc/test.html
+			var settings = {
+				"type": "POST",	
+				"url": "https://academico.tecsup.edu.pe/academico/api-protected/certificados/alumno",
+				"contentType": "application/json",
+				"dataType": 'json',
+				"data": JSON.stringify(user_id),
+			}
+			
+			$.ajax(settings).done(function (json) {
+				console.log(json);
+		
+				var title   = 'Certificados';
+				var svg     = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiA8dGl0bGUvPgogPGRlc2MvPgoKIDxnPgogIDx0aXRsZT5iYWNrZ3JvdW5kPC90aXRsZT4KICA8cmVjdCBmaWxsPSJub25lIiBpZD0iY2FudmFzX2JhY2tncm91bmQiIGhlaWdodD0iNDAyIiB3aWR0aD0iNTgyIiB5PSItMSIgeD0iLTEiLz4KIDwvZz4KIDxnPgogIDx0aXRsZT5MYXllciAxPC90aXRsZT4KICA8cGF0aCBmaWxsPSIjZmZmZmZmIiBzdHJva2U9Im51bGwiIGlkPSJjZXJ0aWZpY2F0ZSIgZD0ibTEyLjA1Nzc4LDIwLjkwOTc5N2wwLDIuNjUyOTcybDE2LjgxNjM1NSwwYzAuNzE2MzA1LDAgMS4yOTY5OTMsLTAuNTgwODE3IDEuMjk2OTkzLC0xLjMwMzQ4OGwwLC0xNi44MDAxODJjMCwtMC43MTk4ODkgLTAuNTY4NTc4LC0xLjMwMzQ4OCAtMS4yOTY5OTMsLTEuMzAzNDg4bC0yNS44Njk4NDYsMGMtMC43MTYzMDUsMCAtMS4yOTY5OTMsMC41ODA4MTcgLTEuMjk2OTkzLDEuMzAzNDg4bDAsMTYuODAwMTgyYzAsMC43MTk4ODkgMC41Njg1NzgsMS4zMDM0ODggMS4yOTY5OTMsMS4zMDM0ODhsMi41ODQ0MzgsMGwwLC0yLjY1Mjk3MmMtMC44MDAzMzgsLTAuODE2NzQ0IC0xLjI5MzgxMSwtMS45MzUzMzQgLTEuMjkzODExLC0zLjE2OTE3NmMwLC0yLjUwMDkzNiAyLjAyNzQwMSwtNC41MjgzMzcgNC41MjgzMzcsLTQuNTI4MzM3YzIuNTAwOTM2LDAgNC41MjgzMzcsMi4wMjc0MDEgNC41MjgzMzcsNC41MjgzMzdjMCwxLjIzMzg0MiAtMC40OTM0NzIsMi4zNTI0MzIgLTEuMjkzODExLDMuMTY5MTc2bDAsMGwwLDB6bS01LjE3NTI0MiwwLjkyMzM4bDAsNS4wOTM0NzNsMS45NDA3MTYsLTEuOTQwNjc3bDEuOTQwNzE2LDEuOTQwNjc3bDAsLTUuMDkzNDczYy0wLjU4ODIwNSwwLjI3OTQyNCAtMS4yNDYxOTgsMC40MzU3ODEgLTEuOTQwNzE2LDAuNDM1NzgxYy0wLjY5NDUxOCwwIC0xLjM1MjUxMSwtMC4xNTYzNTcgLTEuOTQwNzE2LC0wLjQzNTc4MWwwLDBsMCwwem0tMS4yOTM4MTEsMy4wMjM0MDJsLTIuNTgxMjE3LDBjLTEuNDMzNDM5LDAgLTIuNTk0MDI1LC0xLjE1ODU4MSAtMi41OTQwMjUsLTIuNTg3NzYzbDAsLTE2LjgxOTI1M2MwLC0xLjQzNjE5NCAxLjE2MTM4OSwtMi41ODc3NjMgMi41OTQwMjUsLTIuNTg3NzYzbDI1Ljg2MzQwMywwYzEuNDMzNDM5LDAgMi41OTQwMjUsMS4xNTg1ODEgMi41OTQwMjUsMi41ODc3NjNsMCwxNi44MTkyNTNjMCwxLjQzNjE5NCAtMS4xNjEzODksMi41ODc3NjMgLTIuNTk0MDI1LDIuNTg3NzYzbC0xNi44MTMxMzMsMGwwLDUuMTc1MjQybC0zLjIzNDUyNiwtMy4yMzQ1MjZsLTMuMjM0NTI2LDMuMjM0NTI2bDAsLTUuMTc1MjQybDAsMHptLTEuMjkzODExLC0xNS41MjU3MjdsMCwxLjI5MzgxMWwyMy4yODg1OSwwbDAsLTEuMjkzODExbC0yMy4yODg1OSwwbDAsMHptMTEuNjQ0Mjk1LDMuODgxNDMybDAsMS4yOTM4MTFsMTEuNjQ0Mjk1LDBsMCwtMS4yOTM4MTFsLTExLjY0NDI5NSwwbDAsMHptMy44ODE0MzIsMy44ODE0MzJsMCwxLjI5MzgxMWw3Ljc2Mjg2MywwbDAsLTEuMjkzODExbC03Ljc2Mjg2MywwbDAsMHptLTEwLjk5NzM5LDMuODgxNDMyYzEuNzg2Mzc3LDAgMy4yMzQ1MjYsLTEuNDQ4MTQ5IDMuMjM0NTI2LC0zLjIzNDUyNmMwLC0xLjc4NjM3NyAtMS40NDgxNDksLTMuMjM0NTI2IC0zLjIzNDUyNiwtMy4yMzQ1MjZjLTEuNzg2Mzc3LDAgLTMuMjM0NTI2LDEuNDQ4MTQ5IC0zLjIzNDUyNiwzLjIzNDUyNmMwLDEuNzg2Mzc3IDEuNDQ4MTQ5LDMuMjM0NTI2IDMuMjM0NTI2LDMuMjM0NTI2bDAsMHoiLz4KIDwvZz4KPC9zdmc+';
+				
+				var header  = 'En esta secciÃƒÂ³n podrÃƒÂ¡s descargar tus certificados digitales.';
+							
+				//* options are above for convenience, continue if you like *//
+				var tidle     = title.replace(/\s/, '_').toLowerCase(),
+				trayid    = 'global_nav_'+tidle+'_tray',
+				trayItems = '';
+				
+				$(json).each(function(i, e){
+					trayItems += '<li class="gcnt-list-item"><span class="gcnt-list-link-wrapper">';
+					
+					if(e.permiteDescarga) {
+						trayItems += '<a target="_blank" rel="noopener" class="gcnt-list-link" href="javascript:void(0)" onclick="downloadCertificate('+e.codAlumno+', '+e.codProActividad+', '+e.codCertificado+",'"+e.tipoCertSistema+"'"+')" role="button" tabindex="0">'+ e.nombrePrograma +'</a>';
+					}else{
+						trayItems += '<span target="_blank" rel="noopener" class="gcnt-list-link disabled" href="javascript:void(0)" role="button" tabindex="0" style="cursor:not-allowed">'+ e.nombrePrograma +'</span>';
+					}
+					trayItems += '</span><div class="gcnt-link-desc"><small>'+ e.familia +'</small></div>';
+					if(!e.permiteDescarga) {
+						trayItems += '<ul>';
+						$(e.mensaje).each(function(i, e){
+							trayItems += '<li style="color: #D12E2E;font-size: 12px;">'+ e +'</li>';
+						});
+						trayItems += '</ul>';
+					}
+					trayItems += '</li><li class="gcnt-list-item"><hr></li>';
+				});
+				
+				var footer  = '';
+				
+				// tray html
+				var tray = '<span id="'+trayid+'" style="display: none;">'
+					+ '<span class="global-nav-custom-tray gnct-easing">'
+					+ '<span role="region" aria-label="Global navigation tray" class="Global-navigation-tray">'
+					// begin close button
+					+ '<span class="gcnt-tray-close-wrapper">'
+					+ '<button id="'+trayid+'_close" type="button" role="button" tabindex="0" class="gcnt-tray-close-btn" style="margin:0px;">'
+					+ '<span class="gcnt-tray-close-svg-wrapper">'
+					+ '<svg name="IconXSolid" viewBox="0 0 1920 1920" style="fill:currentColor;width:1em;height:1em;" width="1em" height="1em" aria-hidden="true" role="presentation" disabled="true">'
+					+ '<g role="presentation"><svg version="1.1" viewBox="0 0 1920 1920">'
+					+ '<path d="M1743.858.012L959.869 783.877 176.005.012 0 176.142l783.74 783.989L0 1743.87 176.005 1920l783.864-783.74L1743.858 1920l176.13-176.13-783.865-783.74 783.865-783.988z" stroke="none" stroke-width="1"></path>'
+					+ '</svg></g></svg><span class="gcnt-tray-close-txt">Close</span></span></button></span>'
+					// end of close button; begin tray header
+					+ '<div class="tray-with-space-for-global-nav">'
+					+ '<div id="custom_'+tidle+'_tray" class="gnct-content-wrap">'
+					+ '<h1 class="gcnt-tray-h1">'+ title +'</h1><hr>'
+					// end tray header; begin tray links list
+					+ '<ul class="gcnt-list">';
+					if(header.length > 1) {
+						tray += '<li class="gcnt-list-item">'+ header + '</li>'
+							  + '<li class="gcnt-list-item"><hr></li>';
+					}
+					tray += trayItems;
+					// end tray links; if there is a footer, append it
+					if(footer.length > 1) {
+						tray += '<li class="gcnt-list-item"><hr></li>'
+							  + '<li class="gcnt-list-item">'+ footer + '</li>';
+					}
+					// end tray html
+					tray += '</ul></div></div></span></span></span>';
+					
+				// global nav icon
+				var main = $('#main'),
+					menu = $('#menu'),
+					icon = $('<li>', {
+						id: 'global_nav_'+tidle+'_menu',
+						class: 'ic-app-header__menu-list-item',
+						html: '<a id="global_nav_'+tidle+'_link" href="javascript:void(0)" class="ic-app-header__menu-list-link">'
+						  + '<div class="menu-item-icon-container" role="presentation"><span class="svg-'+tidle+'-holder"></span></div>'
+						  + '<div class="menu-item__text">' + title + '</div></a>'
+						});
+					icon.find('.svg-'+tidle+'-holder').load(svg, function(){
+						var svg = $(this).find('svg')[0],
+							svg_id = 'global_nav_'+tidle+'_svg';
+							svg.setAttribute('id', svg_id);
+							svg.setAttribute('class', 'ic-icon-svg menu-item__icon ic-icon-svg--apps svg-icon-help ic-icon-svg-custom-tray');
+							$('#'+svg_id).find('path').removeAttr('fill');
+					});
+				//menu.append(icon);
+				icon.insertAfter($('#global_nav_courses_link').parent());
+				main.append(tray);
+				// if you ventured this far, please note variable reassignment
+				icon = $('#global_nav_'+tidle+'_menu');
+				tray = $('#'+trayid);
+
+				// TODO: there's a delay in switching active icon states, sometimes both are active for a moment
+
+				// multiple ways for the tray to get closed, reduce and reuse
+				function close_gnct() {
+					menu.find('a').each(function(){this.onmouseup = this.blur()})
+					tray.find('.gnct-easing').animate({
+						left: '-200px', opacity: .8
+					}, 300, 'linear', function() {
+						tray.hide()
+						icon.removeClass('ic-app-header__menu-list-item--active')
+					})
+				}
+				icon.click(function() {
+					// if the tray is open, close it
+					if($(this).hasClass('ic-app-header__menu-list-item--active')) {
+						close_gnct()
+					// else open the tray
+					} else {
+						menu.find('a').each(function(){this.onmouseup = this.blur()})
+						tray.show()
+						tray.find('.gnct-easing').animate({
+							left: '0px', opacity: 1
+						}, 300, 'linear', function() {
+							$('.ic-app-header__menu-list-item').removeClass('ic-app-header__menu-list-item--active');
+							icon.addClass('ic-app-header__menu-list-item--active');
+						})
+					}
+				});
+				// close the tray if the user clicks another nav icon that is not this one
+				$('.ic-app-header__menu-list-item').not(icon).click(function() { close_gnct(); });
+				// close the tray
+				$('#'+trayid+'_close').click(function() { close_gnct(); });
+				
+			});
+				
+		} catch(e) {
+			console.log(e.message);
+		}
+		
+	});
+}
+
+function downloadCertificate(codAlumno, idProgramacion, codCertificado, tipoCertSistema) {
+	console.log("downloadCertificate(codAlumno: " + codAlumno + ", idProgramacion: " + idProgramacion + ", codCertificado: " + codCertificado + ")");
+
+	// jQuery 1 no soporta blob: https://stackoverflow.com/a/29556434/2823916
+	var xhr = new XMLHttpRequest();
+	xhr.open('POST', 'https://academico.tecsup.edu.pe/academico/api-protected/certificados/alumno/descarga', true);
+	xhr.responseType = 'blob';
+	xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+	xhr.onload = function(e) {
+		if (this.status == 200) {
+			var blob = new Blob([this.response], {type: 'application/pdf'});
+			var downloadUrl = URL.createObjectURL(blob);
+			var a = document.createElement("a");
+			a.href = downloadUrl;
+			a.download = "certificate-" + codCertificado + ".pdf";
+			document.body.appendChild(a);
+			a.click();
+		} else {
+			console.log('Unable to download excel.')
+		}
+	};
+	xhr.send(JSON.stringify({ 'codAlumno': codAlumno, 'codCertificado': codCertificado, 'idProgramacion': idProgramacion,'tipoCertSistema':tipoCertSistema }));	
+	
+}
+
+
+
+/*** Show Certificates ***/
+/*$(function(){
+	
+	// Show Certificate option
+	
+	if($('#left-side.ic-app-course-menu').length) {
+		
+		try {
+		
+			//console.log(ENV);
+			
+			var course_id = ENV.context_asset_string.split("_")[1];
+			var user_id = ENV.current_user_id;
+			
+			var settings = {
+				"method": "GET",
+				"url": "/api/v1/courses/" + course_id + "/enrollments?user_id=" + user_id,
+			}
+
+			$.ajax(settings).done(function (json) {
+				console.log(json);
+				
+				if(json.length > 0) {
+					
+					var enrollment = json[0];
+					var sis_user_id = enrollment.sis_user_id;
+					var sis_course_id = enrollment.sis_course_id;
+					
+					// Test
+					sis_user_id = 44560;
+					sis_course_id = 127341;	// Decir a Joseph que enviarÃƒÂ© el codseccprod y no el codprodactividad
+					// End Test
+					
+					console.log('sis_user_id: ' + sis_user_id);
+					console.log('sis_course_id: ' + sis_course_id);
+					
+					var settings = {
+						"type": "POST",
+						"url": "https://academico.tecsup.edu.pe/academico/api-protected/certificados/alumno",
+						"contentType": "application/json",
+						"dataType": 'json',
+						"data": JSON.stringify(sis_user_id),
+					}
+					
+					$.ajax(settings).done(function (json) {
+						console.log(json);
+				
+						for(var i = 0; i < json.length; i++) {
+							var certificate = json[i];
+							if(certificate.codProActividad == sis_course_id) {
+								if(certificate.permiteDescarga) {
+									
+									// Mostrar Menu: Hacer si se puede guardar en el local o sesison storage para que las 2da vez sea + rapido
+									var option = $('<li class="section"><div class="spin" data-spin style="position: relative; top: 18px; left: 50px;" /><a href="javascript:void(0)" onclick="downloadCertificate(' + sis_user_id + ', ' + sis_course_id + ', ' + certificate.codCertificado + ')" title="Certificado Digital" class="certificate" tabindex="0">Certificado</a></li>')
+									$('#left-side.ic-app-course-menu nav ul#section-tabs li.section a.grades').parent().after(option);
+									
+								} else {
+									console.log('Certificado no descargable!');
+								}
+							}
+						}
+				
+					});
+					
+				}
+				
+			});
+			
+		} catch(e) {
+			console.log(e.message);
+		}
+			
+	}
+	
+});
+
+var link = document.createElement('link');
+link.src = "https://ksylvest.github.io/jquery-spin/stylesheets/jquery.spin.css";
+link.rel  = 'stylesheet';
+link.type = 'text/css';
+document.head.appendChild(link);
+
+var script = document.createElement('script');
+script.src = "https://ksylvest.github.io/jquery-spin/javascripts/jquery.spin.js";
+document.head.appendChild(script);
+
+function downloadCertificate(codAlumno, idProgramacion, codCertificado) {
+	console.log("downloadCertificate(codAlumno: " + codAlumno + ", idProgramacion: " + idProgramacion + ", codCertificado: " + codCertificado + ")");
+
+	var spin = $('.spin').spin('show');
+	
+	// jQuery 1 no soporta blob: https://stackoverflow.com/a/29556434/2823916
+	var xhr = new XMLHttpRequest();
+	xhr.open('POST', 'https://academico.tecsup.edu.pe/academico/api-protected/certificados/alumno/descarga', true);
+	xhr.responseType = 'blob';
+	xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+	xhr.onload = function(e) {
+		spin.hide();	// El hide() es temporal, porque no funciona el $('.spin').spin('hide'); (https://github.com/ksylvest/jquery-spin/)
+		if (this.status == 200) {
+			var blob = new Blob([this.response], {type: 'application/pdf'});
+			var downloadUrl = URL.createObjectURL(blob);
+			var a = document.createElement("a");
+			a.href = downloadUrl;
+			a.download = "certificate-" + codCertificado + ".pdf";
+			document.body.appendChild(a);
+			a.click();
+		} else {
+			console.log('Unable to download excel.')
+		}
+	};
+	xhr.send(JSON.stringify({ 'codAlumno': codAlumno, 'codCertificado': codCertificado, 'idProgramacion': idProgramacion }));	
+	
+}*/
+
+/*** Hide MenuOptions for Tecsup-Utec account (SE CAMBIO POR CSS) ***/
+/*$(function(){
+	
+	try {
+		
+		//console.log(ENV);
+		
+		var course_id = ENV.context_asset_string.split("_")[1];
+		
+		var settings = {
+			"method": "GET",
+			"url": "/api/v1/courses/" + course_id,
+		}
+
+		$.ajax(settings).done(function (response) {
+			console.log(response);
+			
+			var settings = {
+				"method": "GET",
+				"url": "/api/v1/accounts/" + response.account_id,
+			}
+
+			$.ajax(settings).done(function (response) {
+				console.log(response);
+				
+				if(response.sis_account_id == 'TECSUP - UTEC') {
+					$('#global_nav_help_link').hide();
+					$('#global_nav_normas_tecsup_menu').hide();
+				}
+				
+			});
+			
+		});
+
+	} catch(e) {
+		console.log(e.message);
+	}
+	
+});*/

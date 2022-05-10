@@ -1,0 +1,95 @@
+(window["canvasWebpackJsonp"]=window["canvasWebpackJsonp"]||[]).push([[3856],{jA4X:function(i,e,t){"use strict"
+var o=t("ouhR")
+var s=t.n(o)
+s.a.fn.fancyPlaceholder=function(){let i,e=[]
+function t(){s.a.each(e,(i,e)=>{e[1][e[0].val()?"hide":"show"]()})}return this.each((function(){const o=s()(this),a=s()("label[for="+o.attr("id")+"]")
+a.addClass("placeholder").wrapInner("<span/>").css({"font-family":o.css("font-family"),"font-size":o.css("font-size")})
+o.focus(()=>{a.addClass("focus",300)}).blur(()=>{a.removeClass("focus",300)}).bind("keyup",t)
+try{s()("input:focus").get(0)==this&&o.triggerHandler("focus")}catch(i){}e.push([o,a])
+i||window.setInterval(t,100)}))}},lBOK:function(i,e,t){"use strict"
+var o=t("ouhR")
+var s=t.n(o)
+s.a.fn.loadingImg=function(i){if(!this||0===this.length)return this
+const e=window.getComputedStyle(this[0]).direction||"ltr"
+const t=this.filter(":first")
+let o
+if("hide"===i||"remove"===i){t.children(".loading_image").remove()
+o=t.data("loading_images")||[]
+o.forEach(i=>{i&&i.remove()})
+t.data("loading_images",null)
+this.css("margin-inline-end","")
+return this}if("remove_once"===i){t.children(".loading_image").remove()
+o=t.data("loading_images")||[]
+const i=o.pop()
+i&&i.remove()
+t.data("loading_images",o)
+return this}if("register_image"===i&&3===arguments.length){s.a.fn.loadingImg.image_files[arguments[1]]=arguments[2]
+return this}i=s.a.extend({},s.a.fn.loadingImg.defaults,i)
+let a=s.a.fn.loadingImg.image_files.normal
+i.image_size&&s.a.fn.loadingImg.image_files[i.image_size]&&(a=s.a.fn.loadingImg.image_files[i.image_size])
+i.paddingTop&&(i.vertical=i.paddingTop)
+let n=0
+if(i.vertical)if("top"===i.vertical);else if("bottom"===i.vertical)n=t.outerHeight()
+else if("middle"===i.vertical)n=t.outerHeight()/2-a.height/2
+else{n=parseInt(i.vertical,10)
+isNaN(n)&&(n=0)}let r=0
+if(i.horizontal)if("left"===i.horizontal);else if("right"===i.horizontal)r=t.outerWidth()-a.width
+else if("right!"===i.horizontal){r="ltr"===e?t.outerWidth()+5:-5-(a.width||16)
+this.css({"margin-inline-end":"16px"})}else if("middle"===i.horizontal)r=t.outerWidth()/2-a.width/2
+else{r=parseInt(i.horizontal,10)
+isNaN(r)&&(r=0)}const l=t.zIndex()+1
+const d=s()(document.createElement("div")).addClass("loading_image_holder")
+const g=s()(document.createElement("img")).attr("src",a.url)
+d.append(g)
+o=t.data("loading_images")||[]
+o.push(d)
+t.data("loading_images",o)
+if(t.css("position")&&"static"!==t.css("position")){d.css({zIndex:l,position:"absolute",top:n,left:r})
+t.append(d)}else{const e=t.offset()
+let o=e.top,a=e.left
+i.vertical&&(o+=n)
+i.horizontal&&(a+=r)
+d.css({zIndex:l,position:"absolute",top:o,left:a})
+s()("body").append(d)}return s()(this)}
+s.a.fn.loadingImg.defaults={paddingTop:0,image_size:"normal",vertical:0,horizontal:0}
+s.a.fn.loadingImg.image_files={normal:{url:"/images/ajax-loader.gif",width:32,height:32},small:{url:"/images/ajax-loader-small.gif",width:16,height:16}}
+s.a.fn.loadingImage=s.a.fn.loadingImg},z4pC:function(i,e,t){"use strict"
+t.r(e)
+var o=t("ouhR")
+var s=t.n(o)
+class a{constructor(i,e){this.$loginForm=i
+this.$forgotPasswordForm=e}switchToLogin(){this.$forgotPasswordForm.hide()
+this.$loginForm.show()
+this.$loginForm.find("input:visible:first").focus()}switchToForgotPassword(){this.$loginForm.hide()
+this.$forgotPasswordForm.show()
+this.$forgotPasswordForm.find("input:visible:first").focus()}}var n=a
+var r=t("3lLS")
+var l=t.n(r)
+var d=t("HGxv")
+var g=t("gI0r")
+var c=t("pgkc")
+t("jA4X")
+t("Dhso")
+t("lBOK")
+t("r2Yr")
+const f=Object(d["useScope"])("pseudonyms.login")
+s()("#coenrollment_link").click((function(i){i.preventDefault()
+const e=s()(this).data("template")
+const t=s()(this).data("path")
+Object(c["a"])(e,f.t("parent_signup","Parent Signup"),t)}))
+s()(".field-with-fancyplaceholder input").fancyPlaceholder()
+s()("#forgot_password_form").formSubmit({object_name:"pseudonym_session",required:["unique_id_forgot"],beforeSubmit(i){s()(this).loadingImage()},success(i){s()(this).loadingImage("remove")
+s.a.flashMessage(Object(g["a"])(f.t("Your password recovery instructions will be sent to *%{email_address}*. This may take up to 30 minutes. Make sure to check your spam box.",{wrappers:["<b>$1</b>"],email_address:s()(this).find(".email_address").val()})),9e5)
+s()("ul#flash_message_holder button.close_link").focus()},error(i){s()(this).loadingImage("remove")}})
+s()("#login_form").submit((function(i){const e=s()(this).getFormData({object_name:"pseudonym_session"})
+let t=true
+if(!e.unique_id||e.unique_id.length<1){s()(this).formErrors({unique_id:f.t("invalid_login","Invalid login")})
+t=false}else if(!e.password||e.password.length<1){s()(this).formErrors({password:f.t("invalid_password","Invalid password")})
+t=false}return t}))
+l()(()=>{const i=new n(s()("#login_form"),s()("#forgot_password_form"))
+s()(".forgot_password_link").click(e=>{e.preventDefault()
+return i.switchToForgotPassword()})
+s()(".login_link").click(e=>{e.preventDefault()
+return i.switchToLogin()})})}}])
+
+//# sourceMappingURL=login-c-9850dca039.js.map
